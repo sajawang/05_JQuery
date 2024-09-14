@@ -1,0 +1,49 @@
+*****---html요소 찾기---*****좀중요*****
+
+--id를 이용한 요소 찾기
+var a = document.getElementById('id이름')'
+let a = document.querySelector('#id이름');
+
+--class를 이용한 요소 찾기
+var b1 = document.getElementsByClassName('class이름')[2] //첫번째 요소만 검색
+var b2 = document.getElementsByClassName('class이름')
+let b3 = document.querySelector('.class이름'); //첫번째 요소만 검색
+let b4 = document.querySelectorAll('.class이름'); 
+
+--tag이름을 이용한 요소 찾기
+const c1 = document.getElementsByTagName('tag이름');
+const c2 = document.querySelectorAll('tag이름'); 
+
+************************---html요소의 값 가져오기---*****너무중요**********************
+a.value = 값 - input 요소 의 입력값 / textarea, select/option 
+a.innerHTML = 값  / a.innerText = 값  --div, p, ul/li, ol/li, span, per
+tr/td
+
+*****---html 변수 선언---*****좀중요*****
+var : 같은 이름이 중복되어 선언 가능 / 값 변경은 가능 - scope : 함수영역
+let : 같은 이름이 중복되어 선언 불가능 / 값 변경은 가능 - scope : 블럭영역
+const : 같은 이름이 중복되어 선언 불가능 / 값 변경 불가능 - scope : 블럭영역
+
+
+
+es6
+	let/const
+	querySelector('#id이름');
+	querySelectorAll('.class이름'); 
+	템플릿리터럴
+	화살표함수
+	  함수 선언식 function aa(){   }
+	함수표현식 const aa = function(){  }
+	화살표함수 const aa = () => {   }
+	//쓰는방법 : function이라는 말만 지우면 됨. 이제 화살표 함수를 더 많이 쓸 것임
+	
+	fruits.forEach(function(item, index){  })
+	fruits.forEach( (item, index) => { })
+	// 쓰는 방법 : 괄호 뒤쪽에 => 를 쓴다.
+	
+함수 나머지 매개변수 Rest Parameter
+펼침연산자
+class - 원본 function
+	
+	
+	

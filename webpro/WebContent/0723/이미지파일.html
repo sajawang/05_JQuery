@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+ img{
+ width : 150px;
+ height : 150px;
+ 
+ }
+
+</style>
+
+<script type="text/javascript">
+function backgroundChange(){
+	/* vparent = window.parent
+	vdoc = vparent.document;
+	but = vdoc.getElementById('butimg'); */
+	
+	//부모창의 id=butimg 를 찾는다
+	but = window.parent.document.getElementById('butimg');
+	
+	//랜덤을 발생 0-255
+	vr = Math.floor(Math.random()*256);
+	vg = Math.floor(Math.random()*256);
+	vb = Math.floor(Math.random()*256);
+	
+	//but버튼의 배경색을 변경 - script 내부에서 요소의 스타일을 변경
+	but.style.background = 'rgb('+vr+','+vg+','+vb+')';
+}	
+</script>
+</head>
+<body>
+<img alt="Penguins.jpg" src="../images/Penguins.jpg" id="img1">
+<br>
+<!-- 부모창의 버튼 배경색을 변경 -->
+<input type="button" value="색상변경" onclick="backgroundChange()">
+</body>
+</html>

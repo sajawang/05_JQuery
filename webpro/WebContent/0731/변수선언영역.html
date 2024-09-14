@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	//이 let은 블럭에 갖혀있지 않은 변수
+	let total = 0;
+	const aa =10;
+	
+	//i는 지금은 블럭영역변수
+	for(let i=1; i<=5; i++){
+		total += i;
+		aa = 1;
+	}
+	/* console.log("i ="+i); */
+	console.log("1~5까지의 합 =" + total);
+	
+	
+	function proc1(){
+		total = 0;
+		for(var i=1; i<=5; i++){
+			total += i;		
+		}
+	console.log("proc i ="+i);
+	console.log("proc 1~5까지의 합 =" + total);
+	}
+</script>
+</head>
+<body>
+
+<input type="button" value="확인" onclick="proc1()">
+</body>
+</html>

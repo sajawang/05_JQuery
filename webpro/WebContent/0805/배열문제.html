@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<link rel="stylesheet" href="../css/public.css">
+<script>
+proc1=()=>{
+
+    //배열 선언
+    let arr = []; //arr = new array();
+
+    while(true){
+        //입력
+        let input = prompt("이름입력");
+
+        //console.log(input.length);
+
+        if(input != null ) input = input.trim();
+
+        //입력값 비교 - break
+        if(input.length <1 || input== '' || input==null) break;
+        
+        //배열에 추가
+        arr.push(input);
+    }
+
+    //출력
+    document.getElementById('result1').innerHTML=arr;
+}
+
+proc2=()=>{
+    //12,34,56,78, *34 ,*12 이렇게 중복되는거 안넣게
+    
+    //배열 선언
+    const suArr = [];
+    let i=1;
+
+    while(true){
+        //입력
+        let input = prompt(`${i}번째 수 입력`);
+        
+        //입력값 비교 - suArr.indexOf(입력한값)
+        let idx = suArr.indexOf(input);
+
+        /*if(idx == -1){
+            //suArr배열에 저장(입력한값)
+           suArr.push(input21,2,3,,4,5);
+        }*/
+
+        //한개씩 입력할때는 suArr에 직접 넣는게 효율적
+        //suArr[1] = input;
+
+
+        //es7에서 새로운 세소드  - imcludes ( true, false를 리턴함)
+        if(!suArr.includes(input)){
+           // suArr.push(input);
+           suArr[suArr.length] = input;
+        }
+        
+        //배열갯수 비교- break;
+        if(suArr.length >= 5) break;
+        i++;
+    }
+
+    //suArr배열을 result2에 출력
+    document.getElementById('result2').innerHTML = suArr;
+}
+</script>
+</head>
+<body>
+    <div class="box">
+        <h3>prompt</h3>
+            <input type="button" value="확인" onclick="proc1()">
+            <br>
+            <div id="result1"></div>
+        </div> 
+
+    <div class="box">
+        <h3>서로 중복되지 않은 정수 5개를 입력받아 출력</h3>
+            <input type="button" value="확인" onclick="proc2()">
+            <br>
+            <div id="result2"></div>
+        </div>  
+</body>
+</html>

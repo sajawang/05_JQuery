@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="http://localhost/webpro/css/public.css">
+<script type="text/javascript">
+ const proc1 = () => {
+ 
+	 let vua = document.getElementById('ua');
+
+	 //let list = vua.getElementsByTagName('li');
+	 //let list = vua.querySelectorAll('li');
+	 let list = vua.children;
+	 console.log(list);
+	 
+	 let str = "";
+	 for( a of list){
+		 str += a.firstChild.data+"<br>";
+		 //console.log(str);
+	 }
+	 
+	 /*list.forEach( a=>{
+		 str += a.firstChild.data+"<br>";
+	 })*/
+	 
+	 document.getElementById('result1').innerHTML = str;
+ }
+ 
+ proc2 = () => {
+	 
+	 let vub = document.getElementById('ub');
+	 
+	 let list = vub.querySelectorAll('li');
+	 
+	 for(n of list){
+		 vdata = n.firstChild.data; 
+		 console.log(vdata);
+		 
+		 vimg = document.createElement('img');
+		 vimg.src = "../images/"+vdata;
+		 vimg.alt = vdata;
+		 
+		 //생성된 img를 부모에 추가 = 부모 : li ->n
+		 n.appendChild(vimg)
+	 }
+ }
+ 
+  proc3 = (target) =>{ //target은 li를 클릭할 때 this를 받은 매개변수
+	
+	  vdata = target.firstChild.data;
+  
+  	  vimg = document.createElement('img');
+  	  vimg.src="../images/"+vdata;
+  	  vimg.alt=vdata;
+  	  
+  	  target.appendChild(vimg)
+  }
+  
+  function fnLiImg(){
+	  vdata = this.firstChild.data;
+	  
+	  vimg = document.createElement('img');
+  	  vimg.src="../images/"+vdata;
+  	  vimg.alt=vdata;
+  	  
+  	  this.appendChild(vimg);
+  }
+  window.onload=()=>{
+  	//vud = document.getElementById('ud');
+  	//list = vud.getElementByTagName('li');
+  	
+  	list = document.querySelectorAll('#ud li'); 
+  	
+  	for( a of list){
+  		//a.addEventListener('click', function(){this})
+  		a.addEventListener('click',fnLiImg);
+  	}
+  }
+  
+</script>
+
+<style type="text/css">
+img{
+ width : 50px;
+ height : 50px;
+ border-radius : 50%;
+}
+</style>
+</head>
+<body>
+
+ <div class="box">
+        <h3>1.</h3>
+        <ul id="ua">
+        	<li>List item 1</li>
+			<li>List item 2</li>
+			<li>List item 3</li>
+			<li>List item 4</li>
+			<li>List item 5</li>
+        </ul>
+            <input type="button" value="확인" onclick="proc1()">
+            <br>
+            <div id="result1"></div>
+        </div>
+        
+ <div class="box">
+        <h3>2. li의 data값을 가져와서 img태그를 만들어서 추가한다</h3>
+         <ul id="ub">
+        	<li>가구1.jpg</li>
+			<li>국화3.jpg</li>
+			<li>단풍.jpg</li>
+			<li>무지게5.png</li>
+			<li>셔틀콕.jpg</li>
+        </ul>
+            <input type="button" value="확인" onclick="proc2()">
+            <br>
+            <div id="result2"></div>
+        </div>
+        
+ <div class="box">
+        <h3>3. &lt;li onclick="proc3(this)"></h3>
+        <br>각요소마다 onclick 이벤트를 설정
+         <ul id="uc">
+        	<li onclick="proc3(this)">가구1.jpg</li>
+			<li onclick="proc3(this)">국화3.jpg</li>
+			<li onclick="proc3(this)">단풍.jpg</li>
+			<li onclick="proc3(this)">무지게5.png</li>
+			<li onclick="proc3(this)">셔틀콕.jpg</li>
+        </ul>
+        </div>
+        
+ <div class="box">
+        <h3>4. addEventListener() - 이벤트 설정</h3>
+         <ul id="ud">
+        	<li>가구1.jpg</li>
+			<li>국화3.jpg</li>
+			<li>단풍.jpg</li>
+			<li>무지게5.png</li>
+			<li>셔틀콕.jpg</li>
+        </ul>
+        </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

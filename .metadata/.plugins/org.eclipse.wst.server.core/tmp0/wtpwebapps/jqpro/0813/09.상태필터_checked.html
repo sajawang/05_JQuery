@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<link rel="stylesheet" href="http://localhost/webpro/css/public.css">
+<script src="../js/jquery-3.7.1.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('#btn1').on('click',function(){
+		//$('input[type=checkbox:checked]').val()//속성 선택
+		//$('input:checkbox:checked')
+		
+		//alert($(":checkbox:checked").val() );//폼양식 선택
+		
+		//$.each($(":checkbox:checked"), function(){})
+		
+		str="";
+		$(":checkbox:checked").each(function(i,v){
+			str += $(this).val()+"<br>"
+			/* $(":checkbox:checked.eq(i)")
+			$(v) */
+			$(this).val();
+		})
+		
+		$('#out').html(str);
+		
+	})
+})
+
+</script>
+</head>
+
+<body>
+<div class="box">
+	<h3></h3>
+    <input type="button" value="확인" id="btn1">
+    <br>
+    <div id="result1">
+		<form>
+		취 미 :<input type="checkbox" name="hobby" value="여행"checked >여행
+		<input type="checkbox" name="hobby" value="장기">장기
+		<input type="checkbox" name="hobby" value="바둑">바둑
+		<input type="checkbox" name="hobby"value="독서" >독서
+		<input type="checkbox" name="hobby" value="낚시">낚시<br><br>
+		<input type="button" value="전송">
+		</form>
+    </div>
+    
+    <div id=out></div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

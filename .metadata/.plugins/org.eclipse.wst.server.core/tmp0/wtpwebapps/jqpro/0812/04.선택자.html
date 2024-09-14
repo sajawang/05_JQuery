@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    
+    
+    <link rel="stylesheet" href="../css/public.css">
+    <script src="../js/jquery-3.7.1.js"></script>
+    
+    
+    
+    
+    <script>
+    	
+    	/*
+    	// 맨 바닥에 그냥 $('#result3 h2'); 이건 안됨
+    	//jQuery이다.
+    	//HTML요소를 선택할때 사용한다(DOM에 있는 관계에 기초한)
+    	//DOM (DOcument Object Model)
+    	//$ : jQuery 함수이다. 요소를 선택할떄 사용한다. 
+    	
+    	//#result3 : jQuery의 선택자이다. 타겟은 HTML id 요소.
+    	//#은 ID선택자를 나타내는 jQuery와 CSS의 상징이다.
+    	
+    	//h2 : 자손 선택자이다.
+    	//이것은 구체화하는데 너가 <h2>요소에 관심있다는것을.
+    	//그러면서 result3의 자손이다.(이유 : result3 (띄워쓰기) h2했기 때문)
+    	
+    	
+    	
+    	/*
+    	이벤트 핸들러이다.
+    	실행되는데 result3의 자손인 h2가 클릭되었을때
+    	*/
+    	
+    	/*
+    	$(document) : HTML도큐먼트 전체를 선택한다
+    	.ready : JQuery메소드다. 보장하는. 에워싸진 코드가 실행하는데 DOM이 완전히 로드되고 준비될때까지
+    	*/
+    	
+    	/*
+    	화살표 함수는 자바스크립트에서에서 함수를 표현하기 위한 줄임말이다.
+    	이것은 보장하는데 중괄호 안에 들어있는 코드가 DOM이 준비되었을때 실행될거라는 것을.
+    	*/
+    	
+    	/*
+    	.on('click',function()) ->jQuery메소드다
+    							->첨부하기 위한.
+    							-> 이벤트 핸들러 함수를
+    							->요소를 선택했을때 발생하는
+    	*/
+    	
+    	/*
+    	callback함수인데, .ready()메소드이다.
+    	*/
+    	$(document).ready( ()=> { // window.onload와 같은거고, 이건 jquery 방식, onload는 script 버전.
+    		// 3번 박스에서 h2를 클릭하면. jq 방식
+    		$('#result3 h2').on('click', function() {
+    			
+    		})
+    	})
+    	
+    	
+    	proc1 = () => {
+			//전체 배경색을 변경 
+			// $('*').css('background', 'rgb(188,188,188)');
+			//CSS나 HTML을 수정할떄 사용한다.
+			//$('#result1') ->
+			//$ -> jQuery함수이고, 선택하고, 조종하기 위해 사용한다.
+			//'#result1' -> jQuery 선택자이다. id가 result1인 HTML요소를 타게팅하는.(#의 의미가 id란 뜻)
+			//.css()->jQueryㅁㅔ소드는 선택된 요소들에 대해 CSS 속성을 가져오거나 설정할때 사용된다.
+			//'background'->CSS속성이 수정된다. 여기에선 다음을 가리킨다. 
+			$('#result1').css('background', 'rgb(178,208,138)');
+			
+			
+			//전체 <h1>요소들의 css스타일을 적용하기 위해 사용한다.
+			//$ : 제이쿼리 함수이다. HTML 요소들을 선택하기 위해 사용된다.
+			//<h1> : 제이쿼리 선택자이다. <h1>요소들을 타겟으로하는.
+			//HTML에서 선택자인 'h1'은 보통 태그이름을 선택할때 사용한다.
+			// h1요소의 글자색을 파랑 
+			$('h1').css('color', 'red');
+			
+			//id가 para인 요소의 글자색은 녹색
+			$('#para').css('color', 'green');
+			
+			//class가 sample인 요소의 글자 색깔을 바꾸기 위해 사용한다.
+			//.(점)은 나타내는데 class를 선택한다는 것을
+			//class 가 sample요소의 글자색은 빨강
+			$('.sample').css('color', 'blue');
+			
+    	}
+
+
+        // 2번 박스에서 h2를 클릭하면. script 방식.
+        window.onload = () => {
+        	//javaScript명령이다. 
+        	//h2요소들을 모두 검색하고, 변수에 집어 넣기 위한.
+        	
+        	//getElementsByTagName
+        	//document객체의 메소드다.
+        	//리턴타입은 live HTMLCollection이다. 
+        	
+        	//HTMLCollection : list같은 객체이다. (DOM요소의 컬렉션을 나타내는)
+        	//	->배열과 다르게 배열 메소드는 하나도 가지고 있지 않다.
+        	//	->하지만 인덱스로 ㅈㅓㅂ근 가능하다
+        	//	예시) h2list[0] -><h2>요소의 첫번쨰 값
+            h2list = document.getElementsByTagName('h2'); // 이렇게 하면 컬렉션이 되서 한번에 뭐 못하니까, for문 만들어서 다룰 것
+
+            // for문 만들기
+            for(i=0; i<h2list.length; i++) {
+            	//h2list : HTML컬렉션이다. <h2>요소들의 리스트인. (<h2>요소 검색방법 : document.getElementsByTagname(h2))
+            	//addEventListener('click',fnClick) -> 이 메소드는 첨부한다. 구체화된 요소들에 이벤트 핸들러를
+            	//					-> 이벤트가 발생했을때 구체적 이벤트를 듣고, 함수를 실행한다.
+            	
+            	//click -> addEventListener가 들을 구체적인 타입을 'click'으로 지정했다.(클릭이 트리거로 발생함)
+            	
+            	//fnClick -> 함수의 구체적인 이름임. 실행될건데 click이벤트가 발생되었을때. 'fnClick'이라는 함수를 지정해놨을거임.
+                h2list[i].addEventListener('click', fnClick);
+            }
+        	
+            //<h2>에 클릭이벤트를 주기 위해 사용된다.
+            //<h2>가 클릭되면 클릭 이벤트가 발생한다. 이건 <h2>가 사라지게 하는 것이다.
+            
+            //$('#result3 h2') -> 
+    		$('#result3 h2').on('click', function() {
+    			$(this).hide();
+    			// $ this 하면 jquery 되는거다.
+    		})
+            
+            // 3번 박스의 h2를 클릭하면. jquery 방식.
+            
+
+        
+        
+        }
+
+        //javaScript함수인데 요소를 감추는 역할을 하는
+        //function fnClick() : fnClick이라는 함수를 정의한다.
+        //			->자바스크립트에서 함수들은 다시 사용되는 블록을 캡슐화하는데 사용된다.
+        
+        //this.style.display='none';
+        //this ->이벤트핸들러의 배경에서, this는 이벤트를 발생하게 한 요소를 뜻한다.
+        //	예를들어, 함수가 <button> 클릭 이벤트로 활성되는 이벤트핸들러로 사용되면 this는 <button>이다.
+        
+        // 화살표함수를 쓰면 this 가 window가 된다.
+        // 지금은 this를 클릭 받은 그거를 쓰고싶으니까, 화살표 안됨.
+        function fnClick() {
+            this.style.display = "none";
+        }
+        
+
+        
+        
+        
+        
+        
+        
+        
+    </script>
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body>
+
+
+    <div class="box">
+        <h1>
+
+        </h1>
+        <input type="button" value="confirm" onclick="proc1()">
+        <div id="result1">
+			<h1> 제목입니다 </h1>
+			<h2 id="para"> 작은 제목입니다 </h2>
+			<h2 class="sample"> 샘플입니다 </h2>
+        </div>
+    </div>
+
+
+    <div class="box">
+        <h2>
+            2. h2에 대한 이벤트<br>
+            script - addEventListener()
+        </h2>
+        <div id="result2">
+            <h2>클릭하면 사라집니다1</h2>
+            <h2>클릭하면 사라집니다2</h2>
+            <h2>클릭하면 사라집니다3</h2>
+            <h2>클릭하면 사라집니다4</h2>
+            <h2>클릭하면 사라집니다5</h2>
+            <h2>클릭하면 사라집니다6</h2>
+            <h2>클릭하면 사라집니다7</h2>
+            <h2>클릭하면 사라집니다8</h2>
+            <h2>클릭하면 사라집니다9</h2>
+            <h2>클릭하면 사라집니다10</h2>
+            <h2>클릭하면 사라집니다11</h2>
+            <h2>클릭하면 사라집니다12</h2>
+        </div>
+    </div>
+
+
+    <div class="box">
+        <h2>
+            3. h2에 대한 이벤트 핸들러 작성<br>
+            jquery 방식
+        </h2>
+        <div id="result3">
+            <h2>클릭하면 사라집니다1</h2>
+            <h2>클릭하면 사라집니다2</h2>
+            <h2>클릭하면 사라집니다3</h2>
+            <h2>클릭하면 사라집니다4</h2>
+            <h2>클릭하면 사라집니다5</h2>
+            <h2>클릭하면 사라집니다6</h2>
+            <h2>클릭하면 사라집니다7</h2>
+            <h2>클릭하면 사라집니다8</h2>
+            <h2>클릭하면 사라집니다9</h2>
+            <h2>클릭하면 사라집니다10</h2>
+            <h2>클릭하면 사라집니다11</h2>
+            <h2>클릭하면 사라집니다12</h2>
+        </div>
+    </div>
+
+
+
+
+</body>
+</html>

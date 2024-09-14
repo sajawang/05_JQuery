@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- HTML문서에서 jQuery라이브러리를 포함할떄 사용된다.
+    script - HTML 태그. JavaScript를 적용시키기 위해 사용된다.
+    src - attribute다. 외부자바스크립트의 URL을 구체화하는데 사용된다.
+    https://code.jquery.com/jquery-3.7.1.min.js - URL인데, jQuery 3.7.1이 주환경인 것의 축소된 버전인   -->
+    <link rel="stylesheet" href="http://localhost/jqpro/css/public.css"> <!--WebContent는 포함 안된다고 한다-->
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> <!-- 주소 이렇게 다 쓰는게 절대패스, ..으로 시작하는게 상대패스, 왠만하면 절대패스로 사용할 것 -->
+  	<!-- src=http://localhost/jqpro/js/jquery-3.7.1.js 이것도 있고 -->
+  	<!-- src=../js/jquery-3.7.1.js 이것도 됨 -->
+    <!-- 위에거가 외부 스크립트 -->
+    <!-- 외부 스크립트 안에 뭘 만들면 안됨. 그냥 별도로 사용할 것-->
+  	
+    <!-- 아래거가 내부 스크립트 -->
+  	<script>
+        // proc1 = () => {
+        //     document.getElementById('result1');
+        // }
+        // 이렇게 하면 되는데, 
+        // 아래처럼 이렇게 만들면 안됨. 왜냐면 위에서부터 쭉 읽어가니까, 안됨.
+        // document.getElementById('result1');
+
+        // 그래서 window.onload 펑션 해서 바로 시작할 수 있도록 하는 것.
+        // window 실행완료 후 즉시 자동으로 수행되는 함수. 윈도우 로드해서 실행이 완료되면 즉시
+        
+        //HTML문서가 모두 끝나고 나서 실행시키기 위해 함수를 준비시키는것.
+        //window객체는 나타낸다. 1.browser window 2.tab(containing your webpage)
+        //onload -> window의 이벤트 핸들러 성질. 이것은 구체화한다 함수를 실행하도록 이벤트가 발사했을떄(불붙었을때)
+        //			->웹페이지 전체가 로딩되었을때
+        
+        window.onload = function() {
+        	//javaScript문장. background color를 red로 바꾸는.
+        	//document는 전체 HTML document을 가리킨다. 현재 브라우저에 로딩되어 있는
+        	//getElementById('result1')는 메소드다. 
+        	//그것의 unique한 'id'요소로 HTML 요소를 회수하는.
+        	//이런 id가 이 문서 안에 있다면 ㅇㅣ 메소드는 반환하는데 그 요소와 관련된. 만약에 없으면  null반환
+        	
+        	//.style ->스타일 성질은 가능하게 하는데 곧바로 접근하고, 수정하도록 이 요소의 인라인CSS스타일을.
+        	//이것은 능력을 주는데 CSS요소를 지정하도록 자바스크리ㅂ트를 통해서
+        	
+        	//.background = 'red'
+        	//background성질은 Css성질이다.
+        	//이 요소의 배경을 조종하는.
+        	//이것은 배경의 색깔, 배경이미지 등을 설정가능하다
+            document.getElementById('result1').style.background = 'red';
+        }
+
+        // 버튼 클릭하면
+        proc1 = () => {
+        	//배경색을 노란색으로바꾸는 HTML이다.
+        	//document -> 현재 로드 된 전체 HTML문서를 말한다.
+        	//getElementById('result1') ->result1의 id를 검색하는 메소드이다.
+			//							->만약 이러한 id가 존재한다면 true를 리턴한다.
+			
+			//.style -> style요소는 ㅈㅔ공하는데 inline 스타일에 접근할 수 있는 권한을.
+			//		 -> 요소의 css스타일을 곧바로 적용할 수 있게 해준다.
+			
+			//.background = yellow -> baackground는 css 성질이다.
+			//						-> 요소의 배경을 조절한다.
+			
+			//이 코드가 실행되면 id가 result1인 요소를 찾는다.
+			//이것은 배경을 변화시키는데 노란색으로
+			
+            document.getElementById('result1').style.background = 'yellow';
+        }
+
+
+        
+  	</script>
+    
+</head>
+<body>
+    <div class="box">
+        <h1>
+        	1. 
+        </h1>
+        <!-- 유저가 클릭을 하면 함수가 호출된다. -->
+        <input type="button" value="confirm" onclick="proc1()">
+        <div id="result1"></div>
+    </div>
+</body>
+</html>

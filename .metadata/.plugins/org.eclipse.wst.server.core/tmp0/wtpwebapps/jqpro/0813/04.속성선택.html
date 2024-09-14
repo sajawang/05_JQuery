@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	
+	<link rel="stylesheet" href="http://localhost/webpro/css/public.css">
+	<script src="../js/jquery-3.7.1.js"></script>
+	
+	<script>
+	 jQuery(function(){
+		 jQuery(".box > input[value='확인']").on('click',function(){
+			 //title 속성을 가진 p요소의 배경색 변경
+			 jQuery('p[title]').css('background','yellow');
+			 
+			 //type 속성이 password 인 요소의 테두리 변경
+			 $('input[type=password]').css('border','2px solid red');
+			 
+			 $('#result1 input[type!=password]').css('border', '3px solid green');
+			 
+		 })	
+	 })
+	</script>
+	</head>
+	
+	<body>
+	
+		<div class="box">
+        	<h3></h3>
+            <input type="button" value="확인">
+            <br>
+            <div id="result1">
+            <p> 일반 문단입니다 </p>
+			<p title="툴팁으로 보입니다"> 타이틀을 가지고 있는 문단입니다 </p>
+			회원번호 <input type="text"><br>
+			비밀번호 <input type="password">
+			<input type="button" value="확인">
+            </div>
+        </div>
+	</body>
+</html>

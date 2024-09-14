@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style >
+imput[type=button]:hover{
+	box-shadow : 0px 0px 5px 3px skyblue;
+}
+div[id=result1]{
+	border : 1px dotted red;
+	margin : 10px;
+	padding : 10px;
+	font-size : 1.3rem;
+}
+</style>
+
+<script type="text/javascript">
+class Person{
+	/* constructor(obj){
+		this.name = obj.name;
+		this.age = obj.age;
+	} */
+	//구조분해 버전
+	constructor({name,age}){
+		this.name = name;
+		this.age = age;
+	} 
+	
+	//나이의 합 구하기
+	//...people : 나머지 매개변수를 배열로 받음(정해지지 않은 매개변수의 수를 배열로)
+	static st_sumAge(...people){//...people 나머지 매개변수라는 뜻
+					//person의 객체를 받아라 
+					//예 : p1, p2, p3
+		let sum = 0;
+		
+		for(let i=0; i<people.length; i++){
+			sum += people[i].age;
+		}
+		console.log("1---", sum);
+		
+		sum = 0;
+		people.forEach( obj=>{
+			//function(obj){  }
+			//파라미터 한개는 괄호 안써도 됨
+			//없거나 여러개일때는 괄호 써야함
+			sum += obj.age;
+		})
+		console.log("2---", sum);
+		
+		//구조분해
+		sum=0;
+		people.forEach( ({age})=>{//obj를 구조분해해서age만 가져오겠다
+			sum += age;
+		})
+		console.log("3---", sum);
+		
+		document.getElementById('result1').innerHTML = sum;
+	}
+}
+proc1 = () =>{
+	//Person객체 생성
+	const p1 = new Person({name :'aaa', age : 25});
+	const p2 = new Person({name :'ddd', age:30});
+	
+	Person.st_sumAge(p1,p2);
+	
+	console.log(typeof Person);
+}
+</script>
+</head>
+<body>
+<input type="button" value="확인" onclick="proc1()">
+<div id="result1"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

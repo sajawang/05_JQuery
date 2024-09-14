@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 4 elements to &apos;member&apos;&#x0D;&#x0A;- Original project: &apos;jqpro&apos;&#x0D;&#x0A;- Destination element: &apos;member&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     join.html&#x0D;&#x0A;     dongList.jsp&#x0D;&#x0A;     idCheck.jsp&#x0D;&#x0A;     insert.jsp" description="Copy files" element1="WebContent/6.비동기_ajax/join.html" element2="WebContent/6.비동기_ajax/dongList.jsp" element3="WebContent/6.비동기_ajax/idCheck.jsp" element4="WebContent/6.비동기_ajax/insert.jsp" files="4" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1725932458012" target="/boardpro/WebContent/member" units="0" version="1.0"/>
+</session>

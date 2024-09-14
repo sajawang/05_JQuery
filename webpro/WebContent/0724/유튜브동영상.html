@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+img{
+	width : 100px;
+	height : 100px;
+}
+iframe{
+	width : 70%;
+	height : 300px;
+}
+</style>
+
+<script type="text/javascript">
+function playShow(videoId){
+	
+	//video url
+	vurl= "https://www.youtube.com/embed/"+videoId;
+	
+	//iframe id=promotion_video인 요소로 접근
+	ivideo = document.getElementById('promotion_video');
+	
+	//iframe의 src의 값을 동영상 주소로 설정
+	ivideo.setAttribute('src', vurl)
+}
+</script>
+</head>
+
+
+
+<body>
+
+
+<p>img클릭하면 iframe의 동영상을 실행한다</p>
+<img alt="무지게1.png" src="../images/무지게1.png" 
+	onclick="playShow('4NKNcTeyLto?si=RJLiQ8Bhxkcx7k9Y&autoplay=1&mute=1')">
+<img alt="무지게2.png" src="../images/무지게2.png" 
+	onclick="playShow('ITrp4iTH-8Q?si=Wwmj-8jeZWOiVqSK&autoplay=1&mute=1')"> 
+
+<br><br>
+
+<iframe id="promotion_video"></iframe>
+
+
+</body>
+
+
+
+</html>

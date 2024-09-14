@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/public.css">
+    <style>
+        #contatiner{
+            display : flex;
+            flex-direction : row;
+        }
+    </style>
+
+    <script>
+        /*현재날짜 구하기*/
+        let today = new Date();
+
+        window.onload =() =>{
+            today = document.getElementById('cur').value
+
+        }
+
+        //이전 또는 다음 버튼을 클릭하면
+        proc1 = (target) =>{
+            //target변수는 버튼 클릭시 클릭한 버튼 객체를 받는 변수
+            alert(target.value);
+
+            //1일치의 millisec값구하기
+            let time1 = ;
+
+            //id가 cur인 요소의 값을 가져와야함(innerHTML-div이기떄문)
+            //input이면 value로 가져옴!
+            let curValue = ;
+
+            //curValue문자열로 Date객체를 생성
+            let curDate = new Date
+
+            //curValue의 millisec값 구하기
+            timeCur = 
+
+
+            if(이전){
+                times = 오늘의 millisec - 1일의 millisec
+            } else {
+                times = timeCur + 1일의 millisec값
+            }
+
+            //times로 새로운 Date객체를 생성한다
+            let newDate = 
+
+            //newDate를 toLocaleDateString() 변환해서 
+            //id가 cur인 요소에 출력하시오
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        <h3>1.현재날짜의 이전 다음 구하기
+        </h3>
+
+        <div id="container">
+
+        <br>
+        <input type="button" value="이전" onclick="proc1(this)">
+        <input type="button" value="다음" onclick="proc1(this)">
+        <div id="cur">현재날짜</div>
+        <br>
+    </div> 
+</div> 
+
+</body>
+</html>

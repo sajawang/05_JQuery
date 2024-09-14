@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<link rel="stylesheet" href="../css/public.css">
+
+<style>
+table{
+ border : 2px solid blue;
+ margin : 20px auto;
+
+}
+td{
+ width : 200px;
+ height : 50px;
+ text-align : center;
+}
+
+caption{
+ /* border : 1px dotted orange; */
+ margin : 10px;
+ font-sizxe : 2.0rem;
+ /* caption-side : bottom; */
+}
+
+</style>
+
+
+
+
+</head>
+<body>
+<pre>
+ 열병합 - colspan - 가로로 병합
+ 행병합 - rowspan - 세로로 병합
+
+
+</pre>
+<table border="1" >
+ <caption>
+ 
+ 	VIP리스트
+ 
+ </caption>
+
+ <tr>
+  <td>1</td>
+  <td>2</td>
+  <td>3</td>
+ </tr>
+
+ <tr>
+  <td>1</td>
+  <td>2</td>
+  <td>3</td>
+ </tr>
+
+ <tr>
+  <td>1</td>
+  <td>2</td>
+  <td>3</td>
+ </tr>
+
+ <tr>
+  <td>1</td>
+  <td>2</td>
+  <td>3</td>
+ </tr>
+
+</table>
+
+
+
+
+<table border="1">
+ <caption>
+ 
+ 	VIP리스트
+ 
+ </caption>
+
+ <tr>
+  <td>1</td>
+  <td>2</td>
+  <td>3</td>
+ </tr>
+
+ <tr>
+  <td rowspan="2">1</td>
+  <td>2</td>
+  <td>3</td>
+ </tr>
+
+ <tr>
+  
+  <td>2</td>
+  <td>3</td>
+ </tr>
+
+ <tr>
+  <td colspan="3">1</td>
+ 
+ </tr>
+
+</table>
+
+
+
+
+</body>
+</html>

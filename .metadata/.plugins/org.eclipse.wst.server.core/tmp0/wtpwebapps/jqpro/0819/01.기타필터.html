@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="http://localhost/webpro/css/public.css">
+<script src="../js/jquery-3.7.1.js"></script>
+
+<script type="text/javascript">
+const proc1 = () =>{
+	let str  = " *** hidden 객체 ***<br>";
+	 /*모든 <p>태그(숨겨진)을 찾기 위함이다. 
+	 	.box1클래스에 있는
+	 	그리고 iterate(반복)한다.
+	 */
+	 
+	 /* $('.box1 p:hidden')
+	 :hidden은 보이지 않는 것(display:none, visibility:hidden)을 타겟으로 한다.
+	 또는 
+	 */
+	 
+	 /*.each(function(i,v){...})
+	 each()함수는 제이쿼리에서 반복(iterate)한다. 집합을. 맞는 원소들을
+	 
+	 function(i,v)는 콜백함수이다. 매칭되는 원소들을 실행시킨다.
+	 i->인덱스이다. 현재 원소에 대한
+	 v->이 반복문에 있는 현재의 원소이다.
+	 */
+	 
+	 /*str +=$(this).text()
+	 each() 루프에서 this는 현재의 <p>태그를 말한다.
+	 이 text는 str에 연결시킨다.
+	 */
+	 $('.box1 p:hidden').each( function(i, v) {
+			
+			str +=  $(this).text() +"<br>"; 
+			//str +=  $(v).text() +"<br>";
+			console.log(str);
+		})
+	 //jQuery
+	 //모든 <p>를 선택하기 위한
+	 //지금은 숨겨진
+	/* $('.box1 p:hidden').each( (i,v) =>{
+		 //alert('ㅁㄴㅇㄹ');
+		 str += $(v).text() + "<br>";
+		 //console.log(str);
+	 })*/
+	 
+	 /*$('#result1').html(str)은 아이디가 result1인 
+	 
+	 $('#result1')는 선택자다. 아이디가 result1인 애를.
+	 
+	 .html(str)는 메소드다. set,get html컨텐츠들을 선택하는
+	 이 경우에 그렇기 때문에. 변수str을. html의 독립변수로서. 
+	 result1을 str로 set한다
+	 */
+		$('#result1').html(str);
+	 
+ 	}
+ 
+ const proc2 = () =>{
+	 let str = " ***visible객체***<br>";
+	 /*
+	 $('.box1 p:visible') -><p>를 선택한다. 현재 visible인
+	 					  ->display: none, visibility:hidden이 아닌것을
+	 					  
+	  each(function(i,v){...}) -> each()함수는 jQuery 반복자이다.
+	  -> 이 콜백함수는 이 each메소드의 독립변수가 된다. visible한 <p>에 실행될거다
+	  ->i : 이 반복자의 인덱스이다
+	  ->v: 현재 원소(DOM node)
+	  
+	  dom?
+		HTML 페이지에 있는 html,head, body, title, h1, div, sqpn등을 HTML언어에서는 요소(element라 부른다)
+	  	자바스크립트에서는 이를 문서객체라 부른다
+	  	
+	  	문서객체를 조합해서 만든 전체적인 형태를 DOM(문서객체모델이라 부른다.)
+	  
+	  $(this).text()는 검색한다.<p>fmf rkwlsdofmf
+	 */
+	 $('.box1 p:visible').each(function(i,v){
+		 str += $(this).text()+"<br>";
+	 })
+	 
+	 $('#result2').html(str);
+ }
+</script>
+</head>
+<body>
+	<div class="box box1">
+		<h3></h3>
+		<input type="button" value="hidden" onclick="proc1()">
+		<input type="button" value="visible" onclick="proc2()">
+		<br>
+		<br>
+		
+		<p> 보이는 문단</p> <!-- 오잉 이건 왜 보이지??  -> 현재 보이게 되어 있으니까 ㅋㅋ-->
+		<p style="visibility:hidden;">숨겨진 문단</p>
+		<p style="display:none;"> 자리를 차지 하지 못한 문단 </p>
+		<p style="opacity:0;"> 투명한 문단</p>
+		
+		<div id="result1"></div>
+		<div id="result2"></div>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="http://localhost/webpro/css/public.css">
+<script src="../js/jquery-3.7.1.js"></script>
+
+<script type="text/javascript">
+$(()=>{
+	/*
+	'change'를 묶는다. id가 all인것을
+	checkbox의 아이디가 all인것들이 변화되면, 함수 안에 있는 이벤트 핸들러가 트리거 된다.
+	
+	코드는 체크하는데 id가 all인것을 
+	*/
+	$('#all').on('change',function(){
+		
+		//all의 현재 상태 값을 가져온다-checked
+		chk = $(this).prop('checked');
+		
+		//class=item의 상태값을 chk값으로 설정한다.
+		$('.item').prop('checked',chk);
+	})
+	
+})
+$(()=>{
+
+	$('#btn1').on('click',function(){
+		
+		//현재상태 가져오기
+		chk = $('#checkTest').prop('checked');
+		sel = $('#selTest option').eq(2).prop('selected');
+		txt = $('#txtTest').prop('readonly');
+		dis = $('#runBtn').prop('disabled');
+		
+		console.log(chk, sel, txt, dis)
+		
+		//반대로 설정
+		$('#checkTest').prop('checked',!chk);
+		$('#selTest').prop('selected',!sel);
+		$('#txtTest').prop('readonly',!txt);
+		$('#runBtn').prop('disabled',!dis);
+		
+		
+		
+		
+	})
+})
+
+</script>
+</head>
+<body>
+
+<div class="box">
+  <h3>1.버튼 클릭 시 각 요소들의 현재 상태값을 가져온다<br>
+  2.버튼클릭시마다 각 요소들의 상태값을 바ㄴ대인 상태로 변경한다
+  </h3>
+   <input type="button" value="확인" onclick="proc1()">
+   
+   <form>
+체크박스(라디오버튼) : <input type="checkbox" id="checkTest" checked><br><br>
+리스트박스(select객체) :
+<select id="selTest">
+<option value="1">하나</option>
+<option value="2">둘</option>
+<option value="3" selected >셋</option>
+<option value="4">넷</option>
+</select><br><br>
+text객체 (readonly) : <input type="text" value="가나다" id="txtTest"><br><br>
+button객체(disabled) :
+<input type="button" value="실행" id="runBtn" onclick="alert('hello~')">
+</form>
+   
+   
+  <br>
+   <div id="result1"></div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

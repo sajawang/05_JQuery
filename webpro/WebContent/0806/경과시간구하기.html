@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/public.css">
+
+    <script>
+        today = new Date();
+        proc1 = () => {
+            // 자기 생일 입력하기
+            let myday = new Date(1993,7,23);
+
+            // 오늘의 millisec
+            let tomilli = today.getTime();
+
+            // 내 생일의 millisec
+            let mymilli = myday.getTime();
+
+            // 두 날짜 사이의 간격
+            let times = tomilli - mymilli;
+
+            //
+            let my = times/1000/60/60/24/365;
+
+            // let str = document.getElementById('result1');
+            // str.innerHTML = myday;
+            // str.innerHTML += "<br>"+tomilli;
+            // str.innerHTML += "<br>년"+my;
+
+            // alert(my);
+            out = `오늘: ${today.toLocaleDateString()}<br>`;
+            out += `내생일: ${myday.toLocaleDateString}<br>`;
+            out += `${my}년째 살고 있습니다`<br>;
+
+            document.getElementById('result1').innerHTML = out;
+
+        }
+
+        proc2 = () =>{
+            //오늘의 millisec
+            let toTime = today.getTime();
+
+            //100일의 millisec
+            let Time100 = 100*24*60*60*1000;
+
+            //총 millisec = 현재 + 100일
+            totTime = toTime + Time100;
+
+            //Date객체를 생성 = new Date(millisec)
+            let newDate = new Date(totTime);
+            
+            //newDate변수를 출력 - toLocaleDateString
+            out = `오늘 : ${today.toLocaleDateString()} <br>`;
+            out += `100일 후 : ${newDate.toLocaleDateString()}<br>`;
+            document.getElementById('result2').innerHTML = out;
+        }
+
+    </script>
+</head>
+<body>
+    <div class="box">
+        <h3>
+            1. 경과시간 구하기
+        </h3>
+        getTime(): millisec 값을 리턴
+        millisec / 1000 / 60 / 60 / 24 / 365
+        <br>
+        <input type="button" value="confirm" onclick="proc1()">
+        <br>
+        <div id="result1"></div>
+    </div>
+
+    <div class="box">
+        <h3>2.경과시간구하기
+            getTime(): millisec값을 리턴<br>
+            오늘부터1일.100일후의 날짜를 출력
+            
+        </h3>
+        
+        <br>
+        <input type="button" value="confirm" onclick="proc2()">
+        <br>
+        <div id="result2"></div>
+    </div>
+</body>
+</html>

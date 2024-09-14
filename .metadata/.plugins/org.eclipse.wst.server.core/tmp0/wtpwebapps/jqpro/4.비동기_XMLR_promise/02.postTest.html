@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="http://localhost/webpro/css/public.css">
+<script src="../js/jquery-3.7.1.js"></script>
+<script type="text/javascript">
+ const getData=(url,vdata)=>{
+	 return new Promise( (resolve, reject) =>{
+		const xhr = new XMLHttpRequest();
+		
+		xhr.open('post', url, true);
+		
+		xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded')
+		xhr.send(vdata)
+		
+		xhr.onload = () => resolve(xhr.responseText);
+		xhr.onerror = () =>reject(new Error("오류 발생"))
+	 })
+ }
+ 
+ $(()=>{
+	 $('#btn1').on( 'click', ()=>{
+		 //입력한 값을 가져온다 - 전송할 데이터를 만든다
+		 vname = $('#name').val().trim();
+		 vid = $('#id').val().trim();
+		 console.log(vname, vid);
+		 
+		 /* 
+		 document.ff.name.value.trim();
+		 document.ff.id.value.trim(); */
+		 
+		 //params = {name : vname, id : vid } //자바 스크립트객체
+		 //문자열
+		 params = "name="+vname+"&id="+vid;
+		 
+		 getData('postTest.jsp',params)
+		 .then(res=>{
+			 return JSON.parse(res);
+		 })
+		 .then( (data) =>{
+			 let code = `<p> 이름 : ${data.name}</p>
+			 			 <p> 아이디 : ${data.id}</p>`;
+ 			 $('#result1').html(code);
+		 })
+		 //getData('postTest.jsp',params)
+	 })
+ })
+</script>
+</head>
+<body>
+
+<div class="box">
+  <h3></h3>
+  <form name="ff">
+       이름<input type="text" name="name" id="name"><br>
+       아이디<input type="text" name="id" id="id"><br>
+   <input type="button" value="확인" id="btn1">
+  </form>
+  <br>
+   <div id="result1"></div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

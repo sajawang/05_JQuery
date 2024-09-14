@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+//function proc1(){
+//	proc1 = function(){
+const proc1 = () =>{
+	//수1 입력
+	let su1 = parseInt(prompt("첫번째 수 입력"));
+	let su2 = parseInt(prompt("두번째 수 입력"));
+	
+	let res = su1 +su2;
+	//div에 출력
+	//let out = document.getElementsByTagName('div')[0];
+	let out = document.querySelector('div');
+	//출력내용 작성 12 + 15 =27
+	let str = su1 + "+"+su2+"="+res
+	out.innerText = str;
+}
+</script>
+</head>
+<body>
+<input type="button" value="확인" onclick="proc1()">
+<button type="button" onclick="proc1()">확인</button>
+
+<br>
+<br>
+<div></div>
+</body>
+</html>
+
+
+

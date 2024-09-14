@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+div{
+	height : 100px;
+	margin : 5px;
+	padding : 5px;
+	border : 1px dotted orange;
+	background-image : linear-gradient(to right, skyblue,pink,white);
+}
+</style>
+
+<script type="text/javascript">
+const myCar = { 
+		make : 'bmw',
+		model : 'x5',
+		year : 2020
+}
+
+const printStr =(res)=>{
+	document.querySelector(res).innerHTML=str;
+}
+let str="";
+proc1=()=>{
+	//일부분만 가져오기
+	//const aa = myCar.make;
+	//const bb = myCar.model;
+	
+	const{make, model} = myCar;
+	console.log(make, model);
+	
+	str = 'make와  model만 <br>';//함수 내부에서 let을 빼면 전역변수다!
+							//함수 시작 전에 let str="";라고 하면 전역변수 된다.
+	str += `${make} ${model}`;
+	//호출 :
+	printStr('#result1');
+}
+
+proc2=()=>{
+	//일부분 year가져오기
+	const{year} = myCar;
+	
+	str="year만 <br>";
+	str += year;
+	printStr('#result2')
+}
+proc3=()=>{
+	//일부분만 가져오기 model, year만
+	const {make, ...rest} = myCar; //펼침 연산자
+	// ...rest의 결과는 리터러러 객체다
+	//make의 값 : bmw
+	//...rest는 { model : 'x5', year : 2020}이런 형태로 가져옴
+	
+	str="";
+	for(rr in rest){//rr은 속성이름
+		console.log(rr);
+		str += `myCar[${rr}]->${myCar[rr]}<br>`;
+	}
+	printStr('#result3');
+}
+
+const users=[
+	{name : "철수", age : 25},
+	{name : "영희", age : 27}
+]
+
+proc4=()=>{
+	str="";
+	/* user.forEach((user,index)=>{
+		console.log(user.name, user.age);
+	}) */
+	
+	/* user.forEach(({name,age},index)=>{
+		console.log(name, age);
+	})  */
+	
+	for(const {name, age} of users){
+		console.log(name,age);
+		str += `${name} ${age}<br>`
+	}
+	
+	printStr('#result4');
+}
+
+proc5=()=>{
+	userProc(users); //배열객체
+}
+
+function userProc(persons){//persons : users를 넘겨받은 객체
+	str="";
+	/* persons.forEach((people)=>{
+		console.log(people.name, people.age);
+	})
+	
+	persons.forEach(({name,age})=>{
+		console.log(name,age);
+	}) */
+	
+	for(const {name, age} of persons){
+		console.log(name,age);
+		str +=`${name} ${age}<br>`;
+	}
+	
+	printStr('#result5');
+}
+</script>
+</head>
+<body>
+
+<h3>1.일부분만 분해, 할당 - make, model</h3>
+<input type = "button" value="확인" onclick="proc1()">
+<br>
+<div id="result1">
+</div>
+
+<h3>2.일부분만 분해, 할당 -year</h3>
+<input type = "button" value="확인" onclick="proc2()">
+<br>
+<div id="result2">
+</div>
+
+<h3>3.일부분만 model,year const {make, ...rest} = myCar; </h3>
+<input type = "button" value="확인" onclick="proc3()">
+<br>
+<div id="result3">
+</div>
+
+<h3>4.반복문에서의 구조분해</h3>
+<input type = "button" value="확인" onclick="proc4()">
+<br>
+<div id="result4">
+</div>
+
+<h3>5.함수의 매개변수로 전달된 객체의 구조분해</h3>
+<input type = "button" value="확인" onclick="proc5()">
+<br>
+<div id="result5">
+</div>
+
+
+</body>
+</html>

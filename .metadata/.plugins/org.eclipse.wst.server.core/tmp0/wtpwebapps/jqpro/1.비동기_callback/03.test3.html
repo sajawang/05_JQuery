@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="http://localhost/webpro/css/public.css">
+<script src="../js/jquery-3.7.1.js"></script>
+
+<script type="text/javascript">
+function main(fn){
+	//fn은 매개변수, 파라미터 변수, main함수 호출하는 곳에서 값을 전달받는다.
+	console.log(fn);
+	
+	//fn에 함수가 전달 되면 main실행중에 함수 호출한다
+	console.log("1");
+	
+	//콜백함수호출
+	//왜 main(function())으로 가지? 
+	//어떻게 찾는거지?
+	fn();
+	
+	//main종료 - 다시 되돌아간다.
+}
+
+const proc1=()=>{
+	//main(10);
+	//main("hello");
+	
+	//main함수의 매개변수로 function()을 전달, main함수 실행시 function이 호출
+	main(function(){
+		
+		console.log("2")
+	})
+	
+	console.log("3");
+}
+</script>
+</head>
+<body>
+
+<div class="box">
+  <h3></h3>
+   <input type="button" value="확인" onclick="proc1()">
+  <br>
+   <div id="result1"></div>
+</div>
+</body>
+</html>

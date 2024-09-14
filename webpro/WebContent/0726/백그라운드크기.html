@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style type="text/css">
+	 div{
+	 	width : 30%;
+	 	height : 200px;
+	 	margin : 10px;
+	 	padding : 30px;
+	 	border : 1px solid blue;
+	 	background-image : url(../images/Koala.jpg);
+	 	background-repeat : no-repeat;
+	 }
+	 #d1{
+	 	background-size : auto; /* 원래크기 div크기가 작아서 잘린다 / 원래 그림이 더 크고 */
+	 }
+	 #d2{
+	 	background-size : cover; /* div크기에 맞게 자르거나 늘린다 */
+	 }
+	 #d3{
+	 	background-size : contain; /*온전히 다 보임*/
+	 }
+	</style>
+</head>
+<body>
+	<img src="../images/Koala.jpg">
+	<div id="d1"></div>
+	<div id="d2"></div>
+	<div id="d3"></div>
+	<div id="d4"></div>
+</body>
+</html>

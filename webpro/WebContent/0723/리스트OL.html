@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+ol{
+	border : 1px solid blue;
+	width : 50%;/*li에 따로 50%를 주지 않아도 줄어든다.*/
+	border-left : none;
+}
+
+li{/*녹색과 녹색 사이가 li>*/
+	border : 1px dotted green;
+	margin : 3px; /*위아래좌우*/
+	width : 50%;/*파란색은 그대로 있는데 녹색이 줄어듦*/
+	
+}
+#o2{
+	list-style-type: lower-alpha;
+}
+#o3{
+	list-style-type: upper-alpha;
+}
+#o4{
+	list-style-type: none;
+}
+
+
+
+</style>
+</head>
+<body>
+	
+	
+	
+	<ol id="o1">
+		<li>HTML</li>
+		<li>CSS</li>
+		<li>SCRIPT</li>
+		<li>JQUERY</li>
+	</ol>
+	
+	<hr color='blue'>
+	
+	<ol id="o2">
+		<li>HTML</li>
+		<li>CSS</li>
+		<li>SCRIPT</li>
+		<li>JQUERY</li>
+	</ol>
+	
+	<hr color='red'>
+	
+	<ol id="o3">
+		<li>HTML</li>
+		<li>CSS</li>
+		<li>SCRIPT</li>
+		<li>JQUERY</li>
+	</ol>
+	<ol id="o4">
+		<li>HTML</li>
+		<li>CSS</li>
+		<li>SCRIPT</li>
+		<li>JQUERY</li>
+	</ol>
+
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css"> 
+<script type="text/javascript">
+const arr = ["사과", "바나나", "복숭아", "사과", "파인애플", "참외", "사과", "딸기"]
+proc1 = () =>{
+	//사과 위치 찾기
+	let fruit = "사과";
+	
+	//let idx = arr.indexOf(fruit);
+	let idx = arr.findIndex(function(fr){
+		return fruit == fr;
+	});
+
+	let out = `찾는 과일 : ${fruit}<br>`;
+	
+	if(idx>=0) 
+		out += `${idx}번째에 있습니다.`;
+	else
+		out +=`현재 배열에 찾는과일이 없습니다.	`;
+	document.getElementById('result1').innerHTML = out;
+}
+proc2 = () =>{
+	let fruit = "사과";
+	
+	let idx = arr.lastIndexOf(fruit);
+	
+	let out = `찾는 과일 : ${fruit}<br>`;
+	
+	if(idx>=0) 
+		out += `${idx}번째에 있습니다.`;
+	else
+		out +=`현재 배열에 찾는과일이 없습니다.	`;
+	document.getElementById('result2').innerHTML = out;
+}
+
+proc3 = () =>{
+	let fruit = "참외";
+	let idx = 0; //찾는 시작 위치(0,1,4)
+
+	let str = "찾는 과일"+fruit+"<br>";
+	let flag = false;
+
+	while(true){
+		//사과위치 찾기
+		idx = arr.indexOf(fruit, idx);
+
+		if(idx < 0) break;
+		
+		flag = true;
+		str += `${idx}번쨰 `
+		idx++;
+	}
+	if(flag)
+	 	str+= "있습니다.";
+	else 
+		str+="없는 과일입니다."
+
+	document.getElementById('result3').innerHTML=str;
+}
+
+proc4 =() =>{
+
+	let str = `원래배열 : ${arr} <br>`;
+	
+	//입력
+	fr = prompt("입력하세요");
+	arr.push(fr);
+	
+	str += `push 후 배열 ${arr} <br>`;
+	
+	document.getElementById('result4').innerHTML=str;
+	
+}
+
+proc5=()=>{
+	let str = `원래배열 : ${arr} <br>`;
+	let vpop = arr.pop();
+	str += `push 후 배열 ${arr} <br>`;
+	str += `꺼낸값 : ${vpop}<br>`;
+	document.getElementById('result5').innerHTML=str;
+}
+
+proc6=()=>{
+	const newarr = arr.slice(1,5);
+	let str = `원래배열 : ${arr} <br>`;
+	str += `slice(1,5) 한 배열 :  ${newarr}<br>`;
+	document.getElementById('result6').innerHTML=str;
+}
+
+proc7=()=>{
+	let str = `원래배열 : ${arr}<br>`;
+	//arr.splice(2,1);
+	arr.splice(3,2,100,200,300);
+	//arr.splice(1,0,"개나리","진달래");
+	
+	str += `${arr}<br>`;
+	
+	document.getElementById('result7').innerHTML = arr;
+}
+
+proc8=()=>{
+	let str = `배열갯수 : ${arr.length}<br>`
+	let vjoin = arr.join();
+
+	str += `문자열 갯수 : ${vjoin.length}`;
+	
+	/*for(i=0; i<arr.length; i++){
+		str += `${i} : ${arr[i]}<br?`
+	}*/
+	for(i=0; i<vjoin.length; i++){
+		str += `${i} : ${vjoin[i]}<br?`
+	}
+	document.getElementById('resuslt8').innerHTML=str;
+}
+</script>
+</head>
+<body>
+	<div class="box">
+		<h3>요소 위치 찾기<br>
+	IndexOf()/ lastIndexOf()</h3>
+	<input type="button" value="index" onclick="proc1()">
+	<input type="button" value="last" onclick="proc2()">
+	<br>
+	<div id="result1"></div>
+	<div id="result2"></div>
+</div>
+
+<div class="box">
+	<h3>요소 위치 찾기-사과 전체를 찾기<br>
+	IndexOf(item, start)</h3>
+	<input type="button" value="index" onclick="proc3()">
+	<br>
+	<div id="result3"></div>
+</div>
+
+<div class="box">
+	<h3>배열요소 추가/삭제<br>
+		push(a,b,c,...)/pop()</h3>
+		<input type="button" value="push" onclick="proc4()">
+		<input type="button" value="pop" onclick="proc5()">
+		<br>
+		<div id="result4"></div>
+		<div id="result5"></div>
+	</div>
+	
+	<div class="box">
+		<h3>배열요소 자르기<br>
+		slice(start, end);
+		새로운 배열로 리턴(원본 배열은 바뀌지 않는다.)</h3>
+		<input type="button" value="slice" onclick="proc6()">
+		<br>
+		<div id="result6"></div>
+	</div>
+	
+	<div class="box">
+		<h3>배열수정하기-삽입/삭제<br>
+		splice(index, n, a, b,c) index위치에서 n개를 삭제, a,b,c요소를 삽입
+		<input type="button" value="splice" onclick="proc7()">
+		<br>
+		<div id="result7"></div>
+	</div>
+	
+	<div class="box">
+		<h3>배열을 문자열로 변환<br>
+		join</h3>
+		<input type="button" value="join" onclick="proc8()">
+		<br>
+		<div id="result8"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<link rel="stylesheet" href="http://localhost/webpro/css/public.css">
+<script src="../js/jquery-3.7.1.js"></script>
+
+<script type="text/javascript">
+proc1=()=>{
+	$('#result1 > form *:enabled').css('border','3px solid lime');
+	$('#result1 > form *:disabled').css('border','3px solid red');
+}
+</script>
+</head>
+
+<body>
+
+<div class="box">
+	<h3></h3>
+    <input type="button" value="확인" onclick="proc1()">
+    <br>
+    <div id="result1">
+	    <form>
+			<input type="text" name="id" ><br>
+			<input type="password" name="pass" ><br>
+			<select name="disSelect" disabled="disabled">
+			<option>Option1</option>
+			<option>Option2</option>
+			<option>Option3</option>
+			<option>Option4</option>
+			</select>
+			<br>
+			<textarea name="enTextarea" rows=10 cols=20 >text</textarea><br>
+			<input type="button" value="확인" onclick="alert('hello~~')" disabled="disabled"> <br>
+		</form>
+    </div>
+</div>
+</body>
+</html>

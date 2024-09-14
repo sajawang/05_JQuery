@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+body *{
+	box-sizing : border-box;
+	margin : 3px;
+	border-radius : 20px;
+	/* border : 2px solid orange; */
+}
+#container{
+	display : flex;
+	flex-direction : column;
+	height : 800px;
+}
+header{
+	height : 20%;
+	background : rgba(99%, 83%, 29%, 0.7);
+}
+footer{
+	height : 15%;
+	background : rgba(49%, 83%, 59%, 0.7);
+}
+#content{
+	height : 65%;
+	display : flex;
+	flex-direction : row;
+}
+aside{
+	flex : 30%;
+	background-image : linear-gradient(skyblue, white, yellow);
+}
+section{
+	flex : 70%;
+	background-image : radial-gradient(red, yellow, white);
+}
+img{
+	width : 50%;
+	height : 50%;
+}
+/* figure{
+	border : 1px solid red;
+} */
+article{
+	padding : 8px;
+	margin : 15px;
+	height : 40%;
+	border : 1px dotted green;
+}
+header h1, header p, footer p{
+	text-align : center;
+}
+header h1, footer p{
+	margin-top: 50px;
+	letter-spacing : 20px;
+}
+aside h3, section h2{
+	margin-left : 30px;
+}
+
+</style>
+</head>
+<body>
+
+<div id="container">
+<header>
+<h1>My Blog page</h1>
+<p>플렉스를 이용한 레이아웃입니다</p>
+</header>
+
+<div id="content">
+	<aside>
+		<h3>Link</h3>
+		<br>
+		<ul>
+			<li><a href="http://www.w3schools.com">w3schools</a></li>
+			<li><a href="http://www.naver.com">naver</a></li>
+			<li><a href="http://www.daum.net">daum</a></li>
+		</ul>
+		
+		<figure>
+			<img alt="spongebob.png" src="../images/spongebob.png">
+			<figcaption>스폰지밥</figcaption>
+		</figure>
+		
+	</aside>
+	<section>
+		<h2>다양한 ...</h2>
+		<br>
+		<article>
+		 <h3>Symmentic Tag</h3>
+		 <p>시멘틱 태그는...</p>
+		</article> 
+		
+		<article>
+		 <h3>div와 span</h3>
+		 <p>div태그는 ...</p>
+		</article> 
+	</section>
+</div>
+
+<footer>
+	<p>대덕인재개발원</p>
+</footer>
+
+
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

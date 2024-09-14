@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/public.css">
+    
+    <script src="../js/jquery-3.7.1.js"></script>
+
+
+    <!-- jquery 사용방법 -->
+  	<script>
+        // window 실행 완료 후 즉시 자동으로 실행되는 함수
+        // document는 내부 기능이니까 따옴표 없음
+        
+        //jQuery 스니펫이다.
+        //document가 완전히 로딩되고 준비되었을때 어떤 구체적인 HTML요소의 배경색을 노란색으로 변화시키는.
+        
+        //$(document).ready(function({...}))
+        //$ : jquery의 shorthand이다.(속기 : 간단한 독자적기호들을 사용하여 빠른 글쓰기를 가능하게 하는 방법이나 체계)
+        //		-> 이것은 함수인데, elements를 선택하고 또한 이벤트핸들러를 첨부할 수 있는
+        
+        //$(document) : 이것은 전체 HTML 문서를 선택한다.
+        
+        //.ready(function(){...}) : 이것은 jquery메소드다.
+        //						  -> DOM(Document Object Model)이 완전히 로딩되고 조작될 준비가 될때까지
+        
+        //.ready는 document가 준비될때 실행된다.
+        
+        //$('#result1') -> jQuery선택자인데, id가 result1을 찾는
+        
+        //.css('background','yellow') ->
+        //.css는 jquery의 메소드이다. 
+        //이 경우에 id='result1'인 애의 background의 css요소를 노란색으로 변화시킨ㄷㅏ.
+        $(document).ready(function() {
+            $('#result1').css('background', 'yellow');
+        }) 
+        
+        // 버튼 클릭했을떄
+        proc1 = () => {
+            $('#result1').css('background', 'red');
+        }        
+  	</script>
+    
+</head>
+<body>
+    <div class="box">
+        <h1>
+        	1. 
+        </h1>
+        <input type="button" value="confirm" onclick="proc1()">
+        <div id="result1"></div>
+    </div>
+</body>
+</html>

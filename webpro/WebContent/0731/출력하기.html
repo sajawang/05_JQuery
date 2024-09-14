@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+function proc1(){
+	let gugu = 5;
+	
+	let str = "";
+	
+	for(let i=1; i<=9; i++){
+		str += gugu + "*" + i + "=" + (gugu * i) + "<br>";	
+	}
+	
+	//id = result인 요소에 str의 값을 출력
+	//document.getElementById('result').innerText = str;
+	document.getElementById('result').innerHTML = str;
+	//innterText하면 <br>이 찍힌다
+	//innerHTML하면 <br>빼고 띄어쓰기가 된다
+}
+</script>
+
+
+</head>
+<body>
+
+<input type="button" value="확인" onclick="proc1()">
+<br><br>
+<div id="result"></div>
+
+
+
+
+
+
+</body>
+</html>

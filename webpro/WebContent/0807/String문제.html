@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/public.css">
+    <script>
+        proc1=()=>{
+            //입력 - 포함
+            //1991010-2******
+            let code = prompt("주민번호 입력", "-포함");
+
+            let recode = code.replace("-","");
+            //정규식 표현법 /정규식/g
+            
+            let su = "234567892345";
+            let hap = 9;
+
+            for(i=0; i<su.length; i++){
+                hap += su.charAt(i) * recode.charAt(i)
+            }
+            rest = 11 - (hap % 11) //0-11까지
+            // if(rest ==10) rest = 0;
+            // if(rest ==11) rest = 1;
+
+            rest = rest % 10; //최종 rest의 값 : 0-9까지
+            
+            aa = recode.charAt(recode.length-1);
+
+            if(rest == aa) str="진짜";
+            else str="가짜";
+
+            //출력
+            alert(str);
+            out = code.slice(0,8) +"******<br>"
+            out += "결과"+str;
+
+            document.getElementById('result1').innerHTML = out;
+        }
+
+    </script>
+</head>
+<body>
+    <div class="box">
+        <h3>주민번호작성 프로그램
+        </h3>
+        <input type="button" value="click" onclick="proc1()">
+        <br>
+        <div id="result1"></div>
+    </div> 
+</body>
+</html>

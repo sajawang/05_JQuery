@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<script>
+
+const proc1 = () =>{
+	let str ="";
+	
+	while(true){
+	//구구단 입력 - prompt - 5
+	let gugu = prompt("구구단 입력");
+		
+	str +=`********* ${gugu} 단 *********<br>`
+	
+	for(let i=1; i<=9; i++){
+		str += `${gugu}* ${i} = ${gugu*i} <br>`
+	}
+	
+	//출력
+	document.querySelector('#result').innerHTML = str;
+	
+	//계속할래? - confirm()
+	//취소 버튼 눌렀는지 - false 인지 비교 while문을 종료
+	let yn = confirm("계속할래>>>????");
+	if( !yn ) break;
+	
+	}//while문 괄호
+}//proc1번 괄호
+
+
+	window.onload = () =>{
+		
+		/* //이벤트 부여할 버튼 검색
+		let objbut = document.querySelector('#but1');
+		
+		//objbut.addEventListner('click', function(){}) -> 내용을 직접기술
+		
+		objbut.addEventListener('click', proc1); */
+		
+		document.querySelector('#but1').addEventListener('click',proc1);
+	}
+
+
+</script>
+</head>
+<body>
+<pre>
+confirm() 함수는 사용자와 묻고 대답하기를 실행 하는 함수
+확인 : true를 리턴
+취소 : false를 리턴
+
+이벤트 핸들러 작성
+1. 태그에서 직접
+ &lt;input type = "button" value = "확인" onclick="proc1()">
+ 
+2. script에서 설정
+ 버튼객체 = (id=but)인 요소를 찾는다 document.getElementById....이런거
+ 버튼객체.addEventListener('이벤트이름', 실행할 function) 
+</pre>
+
+<input type = "button" value = "확인" id="but1">
+<br>
+<br>
+<div id="result"></div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

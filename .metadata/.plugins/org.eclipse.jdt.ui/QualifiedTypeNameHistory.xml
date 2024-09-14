@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSession"/>
+    <fullyQualifiedTypeName name="kr.or.ddit.member.dao.IMemberDao"/>
+    <fullyQualifiedTypeName name="kr.or.ddit.member.dao.MemberDaoImpl"/>
+    <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
+    <fullyQualifiedTypeName name="kr.or.ddit.member.vo.ZipVo"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+    <fullyQualifiedTypeName name="kr.or.ddit.member.service.IMemberService"/>
+    <fullyQualifiedTypeName name="kr.or.ddit.member.service.MemberServiceImpl"/>
+    <fullyQualifiedTypeName name="kr.or.ddit.member.vo.MemberVO"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+    <fullyQualifiedTypeName name="kr.or.ddit.mybatis.config.MybatisUtil"/>
+    <fullyQualifiedTypeName name="kr.or.ddit.board.dao.IBoardDao"/>
+    <fullyQualifiedTypeName name="kr.or.ddit.board.dao.BoardDaoimpl"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="com.sun.org.apache.xerces.internal.impl.dv.dtd.StringDatatypeValidator"/>
+    <fullyQualifiedTypeName name="jdk.swing.interop.DispatcherWrapper"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="kr.or.ddit.member.controller.StreamData"/>
+    <fullyQualifiedTypeName name="kr.or.ddit.board.vo.BoardVO"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="kr.or.ddit.board.controller.StreamData"/>
+    <fullyQualifiedTypeName name="com.google.gson.Gson"/>
+    <fullyQualifiedTypeName name="kr.or.ddit.board.vo.ReplyVO"/>
+    <fullyQualifiedTypeName name="kr.or.ddit.board.service.IBoardService"/>
+    <fullyQualifiedTypeName name="kr.or.ddit.board.service.BoardServiceimpl"/>
+</qualifiedTypeNameHistroy>

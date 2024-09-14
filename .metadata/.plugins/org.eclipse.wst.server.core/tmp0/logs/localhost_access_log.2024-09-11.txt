@@ -1,0 +1,10 @@
+127.0.0.1 - - [11/Sep/2024:08:26:09 +0900] "GET / HTTP/1.1" 404 1074
+0:0:0:0:0:0:0:1 - - [11/Sep/2024:08:26:09 +0900] "GET /boardpro/start/index.jsp HTTP/1.1" 200 2395
+0:0:0:0:0:0:0:1 - - [11/Sep/2024:08:26:09 +0900] "GET /boardpro/css/logpro.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [11/Sep/2024:08:26:09 +0900] "GET /boardpro/board/board.jsp HTTP/1.1" 200 17575
+0:0:0:0:0:0:0:1 - - [11/Sep/2024:08:26:09 +0900] "GET /boardpro/js/jquery.serializejson.min.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [11/Sep/2024:08:26:09 +0900] "GET /boardpro/js/board.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [11/Sep/2024:08:26:09 +0900] "GET /favicon.ico HTTP/1.1" 404 1085
+0:0:0:0:0:0:0:1 - - [11/Sep/2024:08:26:09 +0900] "POST /boardpro/boardList.do HTTP/1.1" 200 604
+0:0:0:0:0:0:0:1 - - [11/Sep/2024:08:26:19 +0900] "GET /boardpro/UpdateHit.do?num=21 HTTP/1.1" 200 47
+0:0:0:0:0:0:0:1 - - [11/Sep/2024:08:26:19 +0900] "GET /boardpro/ReplyList.do?bonum=21 HTTP/1.1" 200 284

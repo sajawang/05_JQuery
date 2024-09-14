@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+pre{
+	/*border : 3px double blue;
+	border-left : none;
+	border-right : none;*/
+	
+	border-top : 3px double blue;
+	border-bottom : 3px double blue;
+	
+	padding : 10px;
+	margin : 20px;
+	font-size : 1.2rem;
+	background : rgba(128, 255, 200, 0.8);
+}
+.box{
+	border : 1px solid blue;
+	background-image : linear-gradient(skyblue, pink, white);
+	margin : 5px;
+	padding : 10px;
+}
+
+.box input[type=button], .box input[type=submit]{
+	background : blue;
+	color : white;
+	width : 80px;
+	height : 40px;
+	padding : 5px;
+	border-radius : 20px;
+}
+
+.box div{
+	border : 2px dotted orange;
+	padding : 10px;
+	margin : 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

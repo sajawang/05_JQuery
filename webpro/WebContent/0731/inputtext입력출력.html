@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+#out{
+	display : none;
+}
+</style>
+
+<script>
+//function calc(){}
+const calc = function(){
+	//입력한 값 가져오기 - 결과 : 문자열
+	let su1 = parseInt(document.querySelector('#su1').value);
+	let su2 = parseInt(document.querySelector('#su2').value);
+	
+	//계산
+	let res = su1 + su2;
+	
+	//출력
+	document.querySelector('#result').value = res;
+	
+	//출력 장소를 나타내기
+	let out = document.querySelector('#out');
+	out.style.display = "block";
+}
+
+</script>
+</head>
+<body>
+<h3>입력하세요</h3>
+첫번째 수 : <input type = "text" id="su1"><br>
+두번째 수 : <input type = "text" id="su2"><br>
+<br>
+<input type="button" value="확인" onclick="calc()">
+<br><br>
+
+<div id="out">
+	<h3>출력</h3>
+	<input type="text" id="result">
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

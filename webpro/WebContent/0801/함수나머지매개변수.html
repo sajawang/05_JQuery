@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+//함수 표현식은 호이스팅이 안되기 때문에 
+//호출하기 전에 미리 선언 한다
+
+
+//함수 표현식
+const sum =(...args) =>{
+	let total = 0;
+	let leng = args.length;
+	
+	for(let i=0; i<args.length; i++){
+		total += args[i];
+	}
+	return total;
+}
+
+//함수 호출
+let vtot = sum(10,30,45,67,12);
+console.log(vtot);
+
+vtot = sum(1,5,9,10);
+console.log(vtot);
+
+//함수 선언(정의)
+//함수 선언식은 위치가 호출 전 또는 후 어디에서든 가능
+//function sum(...args){
+/* 	let total = 0;
+	let leng = args.length;
+	
+	for(let i=0; i<args.length; i++){
+		total += args[i];
+	}
+	return total;
+} */
+
+</script>
+</head>
+<body>
+	
+</body>
+</html>

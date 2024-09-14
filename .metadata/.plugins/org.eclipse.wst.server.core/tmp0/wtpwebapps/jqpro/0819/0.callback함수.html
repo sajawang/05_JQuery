@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- 매개변수로 전달하는 함수를 콜백함수라 한다-->
+<script type="text/javascript">
+ //함수를 선언
+ function callThreeTimes(callback){
+	 for(let i=0; i<3; i++){
+		 callback(i)
+	 }
+ }
+ 
+ function print(i){
+	 console.log(`${i}번째 함수 호출`)
+ }
+ 
+ //함수 호출
+ callThreeTimes(print)
+</script>
+</head>
+<body>
+
+</body>
+</html>

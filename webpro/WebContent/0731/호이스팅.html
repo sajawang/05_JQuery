@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+
+	console.log("a== "+a);
+	a = 20;
+	console.log("a== "+a);
+	printValue();
+	
+	//호이스팅은 var만 가능!
+	//let이나 const 불가능
+	
+	//함수 선언식 - 호이스팅 가능
+	function printValue(){
+		a=30;
+		console.log("a==="+a);
+	} 
+	
+	//함수 표현식 - 호이스팅 불가능
+	/* printValue = function(){
+		a=30;
+		console.log("a==="+a);
+	} */
+	
+	var a = 10;
+	//let a =10;
+	//const a=10;
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/public.css">
+<script>
+    today = new Date();
+    proc3=()=>{
+        //1.id가 pday인 요소의 값을 가져온다
+        //결과는 문자열
+        let pday = document.getElementById('pday').value;
+
+        //2. 1번의 값으로 Date객체를 생성 - 구입날짜
+        let pDate = new Date(pday);
+
+        //3. 오늘의 millisec - 2번의 millisec를 구한다
+        let times = today.getTime() - pDate.getTime();
+        
+        //4. 3번에서 times로 경과 일수를 구한다 /1000/60/60/24
+        let day = times/1000/60/60/24;
+
+        //5. 일 수를 비교
+        if(day > 7){
+            str = `날짜가 너무 많이 지났어요`; 
+        } else {
+            str = `교환가능`;
+        }
+
+        //출력
+        out = `오늘 : ${today.toLocaleDateString()}<br>`
+        out += `구입날짜 : ${pDate.toLocaleDateString()}<br>`
+        out += str;
+
+        document.getElementById('result3').innerHTML = out;
+
+
+
+    }
+</script>
+</head>
+<body>
+    <div class="box">
+        <h3>3.경과시간구하기
+            getTime(): millisec값을 리턴<br>
+           7보다 크면 교환 불가능 7보다 작으면 교환 가능
+            
+        </h3>
+        
+        <br>
+        <input type="date" id="pday">
+        <input type="button" value="confirm" onclick="proc3()">
+        <br>
+        <div id="result3"></div>
+    </div>
+</body>
+</html>

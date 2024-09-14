@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+h1 + p{
+  color : red;
+}
+
+h2 ~ p{
+  color : blue;
+}
+
+div.d1 p{
+   background-color :yellow;
+}
+div.d1 span{
+   font-size : 2.0rem;
+}
+div.d1 > p{
+   background-color : green;
+}
+div.d1 > span{
+   border : 2px solid red;
+}
+</style>
+</head>
+<body>
+<pre>
+div.d1 p : div의 후손 p - 자식도 포함 -1,2,3,5,6
+
+div.d1 span : div의 후손 span - 자식도 포함 -  1, 2 , 4
+
+div.d1 > p : div의 자식 p  - 1,2, 5, 6
+
+div.d1 > span : div의 자식 span  - 4
+
+h1 + p : h1의 형제 중 바로다음의 p를 선택 
+h2 ~ p : h2의 형제중 뒤에 있는 p전부를 선택 - 앞에 있는 형제는 선택에 안됨 
+</pre>
+<div class="d1">
+   <h1>부모/자식, 조상/후손(자식도 포함 )</h1>
+   <p><span>무궁화 꽃</span>이 피었습니다1</p>
+   <p><span>무궁화 꽃</span>이 피었습니다2</p>
+   <div><p>무궁화 꽃이 피었습니다3 </p> </div>
+   <span>무궁화 꽃</span>이 피었습니다 4
+   <p>무궁화 꽃이 피었습니다5 </p>
+   <p>무궁화 꽃이 피었습니다6 </p>
+</div>
+
+<div class="d2">
+   <h1>부모/자식, 조상/후손(자식도 포함 )</h1>
+   <p><span>무궁화 꽃</span>이 피었습니다1</p>
+   <p><span>무궁화 꽃</span>이 피었습니다2</p>
+   <div><p>무궁화 꽃이 피었습니다3 </p> </div>
+   <h2>형제선택 + ~</h2>
+   <span>무궁화 꽃</span>이 피었습니다 4
+   <p>무궁화 꽃이 피었습니다5 </p>
+   <p>무궁화 꽃이 피었습니다6 </p>
+</div>
+
+
+
+
+</body>
+</html>

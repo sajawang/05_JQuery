@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="http://localhost/webpro/css/public.css">
+<script src="../js/jquery-3.7.1.js"></script>
+<style type="text/css">
+#res{
+	display : flex;
+	flex-direction : row;
+}
+.item{
+	flex : 25%;
+	margin : 3px;
+	padding : 2px;
+}
+</style>
+<script type="text/javascript">
+$(()=>{
+	
+	$("#jmix").on('click',()=>{
+		fetch('jmix.jsp')
+		.then( res => {
+			if(res.ok){
+				return res.json();
+			} else {
+				throw new Error(`오류발생 : ${res.statusText}`)
+			}
+		})
+		.then(data =>{
+			let code = "";
+	
+			for(let {name, tel, addr} of data){
+				code += `이름 : ${name}<br> 
+						  전화번호: ${tel}<br> 
+						  주소 : ${addr}<br>
+						  <hr color "blue">`
+			}
+			$('#result4').html(code);
+		})
+	})
+	
+	$("#jobj").on('click',()=>{
+		fetch('jobj.jsp')
+		.then( res => {
+			if(res.ok){
+				return res.json();
+			} else {
+				throw new Error(`오류발생 : ${res.statusText}`)
+			}
+		})
+		.then( data => {
+			code ="<table>";
+			
+			code += "<tr><td>이름</td></tr>";
+			code += "<td>"+data.name+"</td></tr>";
+			
+			code += "<tr><td>전화번호</td></tr>";
+			code += "<td>"+data.tel+"</td></tr>";
+			
+			code += "<tr><td>주소</td></tr>";
+			code += "<td>"+data.addr+"</td></tr>";
+		 
+			$('#result3').html(code);
+		})
+	})
+	
+	
+	$('#jarr').on('click', ()=>{
+		fetch('jarr.jsp')
+		.then( res => {
+			console.log(res);
+			
+			if(res.ok){
+				return res.json()
+			} else {
+				throw new Error(`오류 발생:${res.statusText}`)
+			}
+		})
+		.then( data => {
+			
+			let code="<ol>"	
+			for(const user of data){
+				code += `<li>${user}</li>`
+			}
+			code += "</ol>";
+			
+			$('#result2').html(code);
+		})
+	})
+	
+	$('#text').on('click',()=>{
+		fetch('text.jsp')
+		.then( res => {
+			console.log(res);
+			
+			if(res.ok){
+				return res.text()
+			} else {
+				throw new Error(`오류 발생:${res.statusText}`)
+			}
+		})
+		.then( data =>{
+			//data = 홍길동/개나리..
+			console.log(data);
+			
+			arr=data.split("/");
+			
+			//출력
+			let code = "<ul>"
+			$.each(arr,(i,v)=>{
+				code += `<li>${v}</li>`
+			})
+			code += "</ul>";
+			$('#result1').html(code);
+		})
+	})
+})
+</script>
+
+</head>
+<body>
+
+  <input type="button" value="text" id="text">
+   <input type="button" value="jsonarr" id="jarr">
+   <input type="button" value="jsonobj" id="jobj">
+   <input type="button" value="jsonmix" id="jmix">
+
+  <br>
+  <br>
+  <div id="res">
+   <div id="result1" class="item"></div>
+   <div id="result2" class="item"></div>
+   <div id="result3" class="item"></div>
+   <div id="result4" class="item"></div>
+  </div>
+  
+</body>
+</html>

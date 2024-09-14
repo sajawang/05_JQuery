@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="http://localhost/webpro/css/public.css">
+<script src="../js/jquery-3.7.1.js"></script>
+</head>
+<script type="text/javascript">
+$(()=>{
+	const getData = (url) => {
+		
+		return new Promise( (resolve,reject	)=>{
+			
+			const xhr = new XMLHttpRequest();
+			xhr.open('get',url,true);
+			xhr.send();
+			
+			xhr.onload=()=> resolve(xhr.responseText) //then()함수의 콜백에서 text를 받는다	
+			
+			xhr.onerror=()=> reject(new Error("오류발생"))
+			
+		})
+		
+	}
+	
+	$('#jarr').on('click',()=>{
+		getData('jarr.jsp')
+		.then( res => JSON.parse(res))
+		.then( data => {
+			
+			let code = "<ol>";
+			$.each(data, function(i,v){
+				//code += `<li> ${data[i]}</li>`
+				//code += `<li> ${v}</li>`
+				code += `<li> ${this}</li>`
+			})
+			
+			code += "</ol>";
+			
+			$('#result2').html(code);
+		})
+	})
+	
+	$('#text').on('click', () =>{
+		getData('text.jsp')
+		.then( res => {
+			//res = 홍길동/개나리..
+			
+			arr = res.split("/");
+			
+			let code = "<ul>";
+			$.each(arr, function(i,v){
+				//code += `<li>${arr[i]}</li>`;
+				code += `<li>${v}</li>`;
+			})
+			code += "</ul>"
+			$('#result1').html(code);
+			
+		})
+	})
+
+	$('#jobj').on('click',()=>{
+		promi = getData('jobj.jsp')
+		promi.then( (res)=>{
+			return JSON.parse(res)
+		})
+		.then((data)=>{
+		//data로 출력
+		code ="<table>";
+		
+		code += "<tr><td>이름</td></tr>";
+		code += "<td>"+data.name+"</td></tr>";
+		
+		code += "<tr><td>전화번호</td></tr>";
+		code += "<td>"+data.tel+"</td></tr>";
+		
+		code += "<tr><td>주소</td></tr>";
+		code += "<td>"+data.addr+"</td></tr>";
+	
+		$('#result3').html(code);	
+		})
+	})
+	
+	$('#jmix').on('click',()=>{
+	/* 	getData('jmix.jsp')
+		.then( (res)=>{return JSON.parse(res);})
+		.then( (data) =>{ }) */
+		
+		getData('jmix.jsp')
+		.then( res=> JSON.parse(res) )
+		.then( data => {
+			let code = "";
+			//for(i=0; i<data.length; i++){
+				//data[i].name data[i].addr data[i].tel
+			//}
+			/*for( let user of data ){
+				user.name user.addr user.tel
+			}*/
+			
+			for(let {name, tel, addr} of data){
+				code += `이름 : ${name}<br> 
+						  전화번호: ${tel}<br> 
+						  주소 : ${addr}<br>
+						  <hr color "blue">`
+			}
+			$('#result4').html(code);
+		})//then
+		.catch(err=> console.log(err))
+	})//click
+})//$(function)
+
+</script>
+<style type="text/css">
+#res{
+	display : flex;
+	flex-direction : row;
+}
+.item{
+	flex : 25%;
+	margin : 3px;
+	padding : 2px;
+}
+</style>
+<body>
+
+<div class="box">
+  <h3></h3>
+  
+  <input type="button" value="text" id="text">
+   <input type="button" value="jsonarr" id="jarr">
+   <input type="button" value="jsonobj" id="jobj">
+   <input type="button" value="jsonmix" id="jmix">
+  
+  <br>
+  <br>
+  <div id="res">
+   <div id="result1" class="item"></div>
+   <div id="result2" class="item"></div>
+   <div id="result3" class="item"></div>
+   <div id="result4" class="item"></div>
+  </div>
+</div>
+</body>
+</html>

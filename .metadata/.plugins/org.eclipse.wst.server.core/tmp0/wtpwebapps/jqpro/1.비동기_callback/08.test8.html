@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="http://localhost/webpro/css/public.css">
+<script src="../js/jquery-3.7.1.js"></script>
+
+<script type="text/javascript">
+
+//로그인/장바구니/결제하기
+//각 작업은 이전의 작업에 의존한다 –이전작업 완료후 다음 작업 수행
+
+//로그인 함수 - username fnPro : 콜백함수를 받는 매개변수
+ function login(username, fnPro){
+	setTimeout( ()=>{ fnPro(username); }, 2000)
+ }
+ /*login("철수",function(data){
+	console.log(`${data}님 안녕하세요`);
+ })*/
+
+ 
+ 
+//장바구니 함수
+ function addToCart(product, fnPro){
+	setTimeout(()=>{ fnPro(product); }, 3000)
+ }
+ /*addToCart("감자", function(item){
+	 console.log(`${item} 를 장바구니에 넣었습니다`);
+ })*/
+
+ 
+ //결제하기
+ function makePayment(cardNo, product, fnPro){
+	setTimeout(()=>{fnPro(cardNo, product); },1000)
+ }
+ /*makePayment('123412341234', '감자', (cardNumber, product) =>{
+	 console.log(`${cardNumber.slice(0,4)}*******으로 ${product}를 구매 했어요`);
+ })*/
+
+ 
+ 
+ //1번실행(실행순서 보장X)
+ /*const proc1=()=>{
+	 
+	 //실행순서가 보장되지 않는다.
+	login("철수", data =>{
+		console.log(`${data}님 안녕하세요`);
+	})
+	 
+	addToCart("감자", item =>{
+		console.log(`${item}를 장바구니에 넣었습니다`);
+ 	})
+ 
+	makePayment('123412341234', '감자', (cardNumber, product) =>{
+		console.log(`${cardNumber.slice(0,4)}*******으로 ${product}를 구매 했어요`);
+	})
+	 
+ }*/
+ 
+ 
+ 
+ //2번실행 실행순서를 보장받기 위해서는 callback함수를 사용
+ //각 작업은 이전의 작업에 의존한다 –이전작업 완료후 다음 작업 수행
+ const proc1=()=>{
+	
+	 //login
+	 login("철수", data =>{
+		console.log(`${data}님 안녕하세요`);
+		
+		
+		//장바구니 담기를 로그인의 콜백에서 수행
+		addToCart("감자", item =>{
+			console.log(`${item}를 장바구니에 넣었습니다`);
+		
+			//결제하기를 장바구니의 콜백에서
+ 			makePayment('123412341234', '감자', (cardNumber, product) =>{
+ 				console.log(`${cardNumber.slice(0,4)}*******으로 ${product}를 구매 했어요`);
+ 			
+ 			})
+ 		})
+	 })
+ }
+ 
+ 
+ //만약에 결제하기가 끝나고 나서 리뷰쓰기, 리뷰쓰기가 끝나면 쿠폰받기
+ //콜백지옥 - 콜백이 너무 많아서 콜백지옥에 빠짐
+ //login
+/* login("철수", data =>{
+	console.log(`${data}님 안녕하세요`);
+	
+	//장바구니 담기를 로그인의 콜백에서 수행
+	addToCart("감자", item =>{
+	console.log(`${item}를 장바구니에 넣었습니다`);
+	
+		//결제하기를 장바구니의 콜백에서
+		makePayment('123412341234', '감자', (cardNumber, product) =>{
+			console.log(`${cardNumber.slice(0,4)}*******으로 ${product}를 구매 했어요`);
+			
+			//review 쓰기
+			review(aaaa,()=>{
+				//쿠폰받기
+				getCoupon(asdfad, (){
+					
+				})				
+			})
+		})
+	})
+ })
+ */
+ 
+ 
+</script>
+</head>
+<body>
+
+<div class="box">
+  <h3></h3>
+   <input type="button" value="확인" onclick="proc1()">
+  <br>
+   <div id="result1"></div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

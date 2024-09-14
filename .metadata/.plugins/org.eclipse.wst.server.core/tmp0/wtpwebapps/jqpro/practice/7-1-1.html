@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+	//HTML 태그를 쉽게 만들 수 있는 콜백함수를 선언
+	const h1=(text) => `<h1>${text}</h1>`
+	
+	// document(문서)의 body안에 있는 HTML코드(innerHTML)을 자바스크립트로 조작할 수 있게 해주는 코드
+	document.body.innerHTML += h1('1번째 script 태그')
+	</script>
+</head>
+<body>
+	<script type="text/javascript">
+	 document.boudy.innerHTML += h1('2번째 script 태그')
+	 
+	 
+	</script>
+	
+	<h1>첫번째 h1태그</h1>
+	
+	<script type="text/javascript">
+	documnet.body.innerHTML +=h1('3번째 script 태그')
+	</script>
+	<h1>2번째 h2태그</h1>
+</body>
+</html>

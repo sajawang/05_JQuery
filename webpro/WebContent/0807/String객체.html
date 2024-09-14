@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/public.css">
+
+    <script>
+        let str = "Korea 대한민국 우리나라 Korea"
+        proc1=()=>{
+            console.log(str.charAt(4));
+        }
+
+        proc2=()=>{
+            console.log(str.charCodeAt(4));
+        }
+
+        proc3=()=>{
+            //textarea의 입력한 값을 가져온다 - 엔터 포함 \n \r
+            //엔터는 맨앞으로 갔다가-> 줄바꿈임
+            area = document.getElementsByTagName('textarea')[0].value;
+
+            //줄바꾸기
+            //area = area.replace(/정규식/g, "<br>")
+            //패턴 기호 정하는게 정규식
+            // 슬래시, 슬래시 써야함
+            //g는 global 전체 영역
+            area = area.replace(/\n/g, "<br>")
+
+            //result3에 출력
+            document.getElementById('result3').innerHTML = area;
+
+        }
+        //input, textarea->value
+
+        proc4=()=>{
+            vsubstr = str.substring(1,7);
+            out = `str.substring(1,7) : ${vsubstr}`
+            document.getElementById('result4').innerHTML = out;
+        }
+        
+        proc5=()=>{
+            vslice = str.slice(1,7);
+            out = `str.slice(1,7) : ${vslice}`
+            document.getElementById('result5').innerHTML = out;
+        }
+        
+        proc6=()=>{
+            vsub = str.substr(1,7);
+            out = `str.substr(1,7) : ${vsub}`
+            document.getElementById('result6').innerHTML = out;
+        }
+
+        proc7=()=>{
+           arr =  str.split(" ");
+
+           str = "";
+
+           for(a of arr){
+                str += a +"<br>"
+           }
+
+           arr.forEach(function(a,index){
+                str += `${index} 번째 : ${a} <br>`
+           })
+
+           document.getElementById('result7').innerHTML=str;
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        <h3>1.charAt(index) : index위치의 문자를 리턴<br>
+            CodeAt(index) : index위치의 유니코드 문자를 리턴
+        </h3>
+        <input type="button" value="charAt" onclick="proc1()">
+        <input type="button" value="CodeAt" onclick="proc2()">
+        <br>
+        <div id="result1"></div>
+        <div id="result2"></div>
+    </div>
+
+    <div class="box">
+        <h3>1.replace(old, new) : old -> new<br>
+        </h3>
+        <textarea rows ="100" cols="40"></textarea>
+        <input type="button" value="replace" onclick="proc3()">
+        <br>
+        <div id="result3"></div>
+    </div> 
+    
+    <div class="box">
+        <h3>
+            let str = "Korea 대한민국 우리나라 Korea"<br>
+            4.substring(start,end) : start ~end 까지 문자를 추출<br>
+        5. slice(start,end) : start-end-1까지 문자 추출<br>
+        6. substr(satr,length) : start에서 length갯수만큼 추출
+    </h3>
+    
+    <input type="button" value="substring" onclick="proc4()">
+    <input type="button" value="slice" onclick="proc5()">
+    <input type="button" value="substr" onclick="proc6()">
+    <br>
+    <div id="result4"></div>
+    <div id="result5"></div>
+    <div id="result6"></div>
+</div> 
+
+<div class="box">
+    <h3>7.split(구분자) : 구분자를 기준으로 문자열을 분리하여 배열로 생성<br>
+    </h3>
+    <input type="button" value="split" onclick="proc7()">
+    <br>
+    <div id="result7"></div>
+</div> 
+</body>
+</html>

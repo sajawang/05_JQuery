@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="http://localhost/webpro/css/public.css">
+<script src="../js/jquery-3.7.1.js"></script>
+
+<script type="text/javascript">
+ proc1=()=>{
+
+		//태그 이름이 input인지 아닌지 비교
+		//alert(this.tagName);
+		
+		let str = "*** hidden 객체 ***<br>"
+		
+		$('#testForm *:hidden').each(function(a,b){
+		
+			
+		if(this.tagName == "INPUT"){
+			str += ` ${this.tagName} :  [ ${$(this).attr('name')} : ${ $(this).val()} ] <br> `
+		} else {
+			str += ` ${this.tagName} : ${$(this).text()}<br>`			
+		}
+		$('#result1').html(str);
+	}) 
+ }
+
+ proc2=()=>{
+	 
+		let str = "*** visible 객체 ***<br>"
+		let gender ="";
+		
+		$('#testForm *:visible').each(function(a,b){
+			
+			if(this.tagName == "INPUT"){
+				str += ` ${this.tagName} :  [ ${$(this).attr('name')} : ${ $(this).val()} ] <br> `
+				
+				vtype = $(this).attr('type');
+				
+				//prop-
+				
+				if(vtype == 'radio' && $(this).prop('checked')){
+					gender += `성별선택 : ${$(this).val()} <br>`
+				}
+				
+			} else if(this.tagName != "BR"){
+				str += ` ${$(this).text()} <br>`
+			}
+			
+			
+			let res = str + "<br>";;
+			res += gendere+"<br>";
+			
+			$('#result2').html(res);
+			
+			
+		})
+ }
+</script>
+</head>
+<body>
+
+<div class="box">
+  <h3>1.attr('name'), attr('type') : 속성값을 가져오기<br>
+  val(). text() : 해당하는 값을 가져오기 <br>
+  prop() : 요소의 속성 상태값을 가져온다 - checked, selected, readonly, disabled true/false 리턴
+  
+  </h3>
+   <input type="button" value="hidden" onclick="proc1()">
+   <input type="button" value="visible" onclick="proc2()">
+  <br>
+   <form id="testForm">
+	<input type="hidden" name="userAge" value="33">
+	<input type="hidden" name="userCity" value="대전">
+	ID : <input type="text" name="userID" value="hong">
+	<span style="display:none">ID가 중복됩니다. </span> <br>
+	이름 : <input type="text" name="userName" value="홍길동">
+	<span style="visibility:hidden">이름을 입력하세요</span><br>
+	성별 : <input type="radio" name="sung" value="남" checked>남자
+	<input type="radio" name="sung" value="여">여자
+   </form>
+   <div id="result1"></div>
+   <div id="result2"></div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

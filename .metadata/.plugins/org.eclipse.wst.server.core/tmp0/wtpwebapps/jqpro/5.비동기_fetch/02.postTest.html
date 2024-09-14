@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="http://localhost/webpro/css/public.css">
+<script src="../js/jquery-3.7.1.js"></script>
+<script type="text/javascript">
+const getData = function(url,ph, pb){
+	fetch(url,{
+		method : 'post', //The request method is POST
+		headers : ph, //The headers for the request (passed in as 'ph')
+		body : pb //The body of the request
+	})
+	.then(res=>{
+		console.log(res);
+		
+		if(res.ok){ //Check if the response status is 'ok' ( ex) status code is 200-299)
+			return res.json(); //Parse and return the response data as JSON
+		} else {
+			new Error("오류 :"+res.statusText); //Throw and error if the response is not 'ok'
+		}
+	 })
+	.then( data=>{
+		//출력내용
+		//Handle and display the received data
+		code = `이름 : ${data.name}<br>
+				아이디 : ${data.id}<br>
+				메일 : ${data.email}`;
+				
+		$('#result1').html(code); 
+	}).catch(err=>{
+		alert("오류 : "+err)
+	})
+}
+
+$( ()=>{
+	$('#btn1').on('click',()=>{
+		
+		//입력한 값 가져오기
+		vid = $('#id').val().trim();
+		vname = $('#name').val().trim();
+		vemail = $('#email').val().trim();
+		
+		fheader = {
+				"Content-type" : "application/x-www-form-urlencoded"
+		};
+		//전송할 데이터를 문자열로 구성
+		// This is to used to create the body of a Post request in the form of a URL-encoded string.
+		//Suppose yo have variables.
+		//vid=123
+		//vname=john
+		//vemail=jogn@example.com
+		//concatenate(연결) the vales of 'vid', 'vname', 'vemail' into a single string, separated by &
+		//and each key-value joined by =
+		//결과가 이렇게 나타날것 id=123&name=John Doe&email=john@example.com
+		fbody="id="+vid+"&name="+vname+"&email="+vemail;
+		
+		getData('params.jsp',fheader,fbody);
+	})//click
+	
+	$('#btn2').on('click',function(){
+		//입력한 값 가져오기
+		vid = $('#id').val().trim();
+		vname = $('#name').val().trim();
+		vemail = $('#email').val().trim();
+		
+		fheader = {
+			"Content-type" : "application/json"
+		};
+		//전송할 데이터를 직렬화
+		fbody = JSON.stringify( {id : vid , name : vname , email : vemail} );
+		getData('seria.jsp', fheader, fbody);
+	})
+})	
+	
+</script>
+</head>
+<body>
+
+<div class="box">
+  <h3></h3>
+  <form name="ff">
+       이름<input type="text" placeholder="name" name="name" id="name"><br>
+       아이디<input type="text" placeholder="id" name="id" id="id"><br>
+       이메일<input type="text" placeholder="email" name="email" id="email"><br>
+   <input type="button" value="params전송" id="btn1">
+   <input type="button" value="직렬화전송" id="btn2">
+  </form>
+  <br>
+   <div id="result1"></div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

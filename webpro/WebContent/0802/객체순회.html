@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="icon" href="../images/check.png">
+<style type="text/css">
+div{
+	height : 100px;
+	margin : 5px;
+	padding : 5px;
+	border : 1px dotted orange;
+	background-image : linear-gradient(to right, skyblue,pink,white);
+}
+</style>
+
+<script type="text/javascript">
+const myCar = { 
+		make : 'bmw',
+		model : 'x5',
+		year : 2020
+}
+
+proc1=()=>{
+	//객체 속성접근
+	//console.log(myCar.make, myCar.model, myCar.year);
+	//console.log(myCar['make'], myCar['model'], myCar['year']);
+	
+	let str="";
+	//반복문 이용
+	for(let i in myCar){//i변수는 속성이름
+		//console.log(i);
+		str +=`myCar.${i} : ${myCar[i]}<br>`;
+	}
+	
+	document.querySelector('#result1').innerHTML=str;
+}
+
+proc2 =() =>{
+	
+	let str="";
+	/* const keys = Object.keys(myCar);//myCar객체의 속성만 리턴하는 배열
+	keys.forEach(function(item, index){
+		str += `${index} : ${item} <br>`
+	}) */
+	
+	for(const key of Object.keys(myCar)){
+		str += `${key}<br>`
+	}
+	document.querySelector('#result2').innerHTML = str;
+}
+
+proc3=()=>{
+	
+	let str ="";
+	/* const values = Object.values(myCar);
+	//배열순회
+	values.forEach((value,index)=>{
+		str += `${index} : ${value}<br>`;
+	}) */
+	
+	for(const value of Object.values(myCar)){
+		str += `${value}<br>`;
+	}
+	document.querySelector('#result3').innerHTML=str;
+}
+
+proc4=() => {
+	
+	let str="";
+	/* const ent = Object.entries(myCar);
+	
+	ent.forEach(function([key, value],index){
+		str += `${index} : ${key} -> ${value}<br>`
+	}) */
+	
+	//구조분해 [key, value]: key와 balue를 따로 분해
+	for(const [key, value] of Object.entries(myCar)){
+		str += `${key} -> ${value}<br>`
+	}
+	document.querySelector('#result4').innerHTML = str;
+}
+
+// proc4() 에서 보면, 아래 펑션을 forEach문 안에 집어넣은거니까,
+function proc1() {
+	// 이게 () forEach(괄호안에 들어가야함)
+}
+
+</script>
+
+</head>
+<body>
+<h3>1.반복문 for(let i in myCar) ->여기서 i는 속성을 대입받는다</h3>
+<input type = "button" value="확인" onclick="proc1()">
+<br>
+<div id="result1">
+</div>
+
+<h3>2.const key of Object.keys(myCar)){</h3>
+<input type = "button" value="확인" onclick="proc2()">
+<br>
+<div id="result2">
+</div>
+
+<h3>3.const value of Object.values(myCar)){</h3>
+<input type = "button" value="확인" onclick="proc3()">
+<br>
+<div id="result3">
+</div>
+
+<h3>4.(const [key, value] of Object.entries(myCar)){</h3>
+<input type = "button" value="확인" onclick="proc4()">
+<br>
+<div id="result4">
+</div>
+
+
+
+</body>
+</html>

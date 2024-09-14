@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="http://localhost/webpro/css/public.css">
+<script src="../js/jquery-3.7.1.js"></script>
+<script type="text/javascript">
+
+function getData(){
+	setTimeout( ()=>{
+		console.log("서버에서 데이터가져오기 \n id가 a001인 데이터의 이름을 가져오기");
+		vname = "김은대";
+	},2000)
+}
+
+const proc1=()=>{
+	getData();
+	console.log(`결과데이터  ${vname}`)
+}
+
+//결과 : vname is not defined
+//정상실행되기 위해서 test6 - callback함수 
+</script>
+</head>
+<body>
+
+<div class="box">
+  <h3></h3>
+   <input type="button" value="확인" onclick="proc1()">
+  <br>
+   <div id="result1"></div>
+</div>
+</body>
+</html>

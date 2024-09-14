@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>리스트</title>
+
+<style>
+ul{
+	border : 1px solid blue;
+	/* padding : 5px; */
+	/* padding-top : 5px;
+	padding-bottom : 5px; */
+	width : 30%;
+}
+
+li{
+	border : 1px solid green;
+	/*1.픽셀 2. 스타일 3. 컬러 -> 순서지켜야함*/
+	
+	border-width: 1px;
+	border-color: green;
+	margin : 3px;
+	/*여기는 순서 상관 없이 해도 됨*/
+	
+	}
+#u2{
+	list-style-type: circle; 
+	list-style-position: inside;
+}	
+#u3{
+	list-style-type: square; 
+	list-style: circle inside url(../images/check.png);
+}	
+#u4{
+	list-style-image: url(../images/check.png); 
+}	
+
+</style>
+
+
+
+
+</head>
+<body>
+
+<ul id="u1">
+	<li>html</li>
+	<li>css</li>
+	<li>script</li>
+	<li>jquery</li>
+</ul>
+	
+<ul id="u2">
+	<li>html</li>
+	<li>css</li>
+	<li>script</li>
+	<li>jquery</li>
+</ul>
+	
+<ul id="u3">
+	<li>html</li>
+	<li>css</li>
+	<li>script</li>
+</ul>
+	
+<ul id="u4">
+	<li>html</li>
+	<li>css</li>
+	<li>script</li>
+	<li>jquery</li>
+	<li>jquery</li>	
+</ul>
+
+</body>
+</html>

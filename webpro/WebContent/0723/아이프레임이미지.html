@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+ iframe{
+  width : 200px;
+  height : 200px;
+  border : 1px solid gray;
+ }
+</style>
+<script>
+//함수정의
+function changeImage(){
+	
+	//id=ifr를 이용해서 iframe요소를 찾는다.
+	vifr = document.getElementById('ifr');
+	
+	//iframe파일의 document 객체로 접근
+	vifrDoc = vifr.contentDocument;
+	
+	//iframe파일인 이미지파일.html의 img요소를 찾는다
+	vimg = vifrDoc.getElementById('img1');
+	
+	/* alert(vimg); */
+	
+	//img의 src속성을 변경해서 이미지를 바꾼다.
+	
+	//--img의 src 속성값을 가져온다
+	vsrc = vimg.getAttribute('src');
+	
+	// 현재 Penguins이라는 매칭된 글자가 있는지 비교
+	// 해당 글자가 있으면 그 글자를 리턴하고, 없으면 null을 리턴한다
+	math = vsrc.match("Penguins");
+	
+	/* window.alert(math); */
+	
+	//비교
+	if(math != null){
+		//다른 그림으로 변경 - src를 변경
+		vimg.setAttribute('src', '../images/spongebob.png')
+	} else {
+		//Penguins으로 변경
+		vimg.setAttribute('src','../images/Penguins.jpg');
+	}
+}
+
+</script>
+
+</head>
+<body>
+<pre>
+요소 찾기
+
+요소의 속성값 가져오기 - getAttribute('속성이름');
+
+요소의 속성값 설정하기 - setAttribute('속성이름','새로운값');
+
+이미지변경버튼에 대한 클릭 이벤트(이벤트 랜들러)를 설정 - javascript를 이용한다
+onclick="함수이름(매개변수값)" --- javascript의 함수이름을 호출한다
+
+</pre>	
+<input id="butimg" type="button" value="이미지변경" onclick="changeImage()">
+<br>
+<br>
+<iframe src="이미지파일.html" name="ifr" id="ifr" title="이미지"> </iframe>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

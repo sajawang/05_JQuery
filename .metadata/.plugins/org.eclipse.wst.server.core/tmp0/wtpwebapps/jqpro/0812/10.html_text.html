@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<!-- <script  src=""></script> -->
+<script src="../js/jquery-3.7.1.js"></script>
+
+
+<script>
+
+$(function(){
+	
+	$('#html').on('click', function(){
+		  alert( $('body').html() );
+	})
+	
+	$('#text').on('click', function(){
+		  alert( $('body').text() );
+	})
+	
+	/* document.getElementById('phtml').addEventListener('click', function(){
+		
+		 $('p').html()
+		 document.getElementsByTagName('p')[0].innerHTML 
+		 
+	}) */
+	$('#phtml').on('click', function(){
+		
+		//첫번째 p 하나만 
+		//alert( $('p').html());
+		
+		//모든 p태그 의 내용 가져오기- 반복문을 이용해서 전체을 대상으로 
+		$('p').each(function(a, b){
+			 alert( $(this).html());
+			 //alert( $('p').html());
+		})
+	
+	})
+	
+	$('#ptext').on('click', function(){
+		alert( $('p').text());
+	})
+	
+})
+</script>
+
+</head>
+<body>
+
+
+<div class="box">
+    <h3>1.$('body').html() : 모든 태그와 내용 <br>
+    $('body').text()  모든 내용만 ,태그 포함되지 않는다  : 
+   </h3>
+	<input type="button" value="html" id="html">
+	<input type="button" value="text" id="text">
+
+	<br>
+	<div id="result1"></div>
+</div>
+
+<div class="box">
+    <h3>2.$('p').html() : 첫번째 p태그를 대상으로 내용 가져오기 -태그 포함<br>
+    text() :   모든 p태그를 대상으로 내용 가져오기 -태그  포함하지 않음
+   </h3>
+	<input type="button" value="html" id="phtml">
+	<input type="button" value="text" id="ptext">
+
+	<br>
+	<div id="result2">
+	    <p>1<span>홍길동</span></p>
+		<p>2<span>개나리</span></p>
+		<p>3<span>진달래</span></p>
+	</div>
+</div>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+

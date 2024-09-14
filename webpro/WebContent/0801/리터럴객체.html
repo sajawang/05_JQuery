@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+const myCar = { 
+		make : 'bmw',
+		model : 'x5',
+		year : 2020,
+		speed : 100,
+		
+		brake : function(){
+			this.speed = 0;
+
+			
+		accel : function(){
+			this.speed = 200;
+		}
+}
+
+proc1 = () =>{
+	//객체 myCar의 정보를 출력
+	
+	let str = "";
+	str += `make : ${myCar.make} <br>`; /* myCar[`make`]*/
+	str += `model : ${myCar.model} <br>`;
+	str += `speed : ${myCar.speed} <br>`;
+	
+	myCar.brake(); // 함수 호출 speed = 0으로 변환
+	str += `speed : ${myCar.speed} <br>`;
+	
+	
+	document.querySelector("#result1").innerHTML = str;
+}
+
+proc2 = () =>{
+	//함수 호출
+	myCar.accel() //speed = 200
+	let str = `speed : ${myCar.speed} <br>`;
+	document.querySelector("#result2").innerHTML = str;
+}
+
+</script>
+</head>
+<body>
+
+<input type = "button" value="확인" onclick="proc1()">
+<input type = "button" value="확인" onclick="proc2()">
+
+<br><br>
+<div id="result1"></div>
+<div id="result2"></div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="../css/public.css">
+    
+    <script>
+
+    let day1 = new Date();
+    let day2 = new Date(1000);
+    let day3 = new Date("2024.08.05");
+    let day4 = new Date(2024, 08, 06);
+
+    arr=["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+    //arr[0]
+    day=day1.getDay();
+    aa = arr[day];
+    
+    /*switch(day){
+        
+        window.onload = () =>{
+           switch{
+            case 0 :
+                aa = "일요일";
+                break;
+            case 1 :
+                aa = "월요일";
+                break
+            case 2 :
+                aa = "화요일";
+                break
+            case 3 :
+                aa = "수요일";
+                break
+            case 4 :
+                aa = "목요일";
+                break
+            case 5 :
+                aa = "금요일";
+                break
+            case 6 :
+                aa = "토요일";
+                break
+                    }}*/
+            res3 = document.getElementById('result3')
+
+        //1초마다 Date 객체를 갱신
+        window.setInterval(function(){
+            today = new Date();
+            
+            day = today.getDay();
+            console.log(day);
+
+            today = today.toLocaleString();
+            
+            res3.innerHtml = today;
+        },1000);
+    }
+
+
+        proc1=()=>{
+
+            let str = `${day1}<br>`;
+            str += `${day2}<br>`;
+            str += `${day3}<br>`;
+            str += `${day4}<br>`;
+            str += `${aa}`;
+            document.getElementById('result1') = str;
+            
+            day1 = day1.toLocaleString();
+            day2 = day2.toLocaleString();
+            day3 = day3.toLocaleString();
+            day4 = day4.toLocaleString();
+            
+            str = `${day1}<br>`;
+            str += `${day2}<br>`;
+            str += `${day3}<br>`;
+            str += `${day4}<br>`;
+            
+            str += `${aa}`;
+            document.getElementById('result2') = str;
+
+
+
+        }
+
+
+    </script>
+</head>
+<body>
+    
+    <div class="box">
+        <h3></h3>
+            <input type="button" value="확인" onclick="proc1()">
+            <br>
+            <div id="result1"></div>
+        </div>  
+
+    <div class="box">
+        <h3>2. toLocaleString() </h3>
+            <input type="button" value="확인" >
+            <br>
+            <div id="result2"></div>
+        </div>  
+
+    <div class="box">
+        <h3>3. toLocaleString()
+            실행하자마자 시계 출력 - 3초마다 갱신
+        </h3>
+            <input type="button" value="확인" >
+            <br>
+            <div id="result3"></div>
+        </div>  
+    
+         
+</body>
+</html>

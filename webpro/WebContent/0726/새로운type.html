@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<script>
+	 function colorChange(){
+		 //id=col인 요소 접근 - 값을 가져온다
+		 
+		 let vcolor = document.getElementById('col').value;
+		 
+		 //form요소 접근
+		 let vform = document.getElementsByTagName('form')[0];
+		 
+		 //form요소의 배경색 변경
+		 vform.style.background = vcolor;
+	 }
+	 
+	</script>
+</head>
+<body>
+	<pre>
+	 요소의 pattern - 정규식 이용
+	 [0-9] : 한글자, 
+	 		[0-9]* : 0번 이상 (없어도 된다는 뜻)
+	 		[0-9]+ : 1글자 이상(한글자, 두글자, .....), 
+	 		[0-9]{3}: 3글자 옴
+	 		[0,9]{3,5} : 3-5글자 사이
+	 		\d{3} : \d는 숫자라는 뜻
+	 		\d\d\d : 세글자 숫자라는 뜻
+	 [a-z]
+	 [A-Z]
+	 [가-힣] : 신기 ㅋㅋㅋㅋ가에서 힣까지라니
+	 \. : 모든 문자를 뜻함
+	</pre>
+	
+	<form action="새로운.jsp" method="post">
+	 
+	 <input type="text" name="id" value="a001"
+	 	required readonly autofocus placeholder="아이디입력"><br>
+	 
+	 <label for="email">이메일</label>
+	 <input type="email" id="email" name="email" placeholder="이메일입력"><br>
+	
+	 <label for="tel">전화번호</label>
+	 <input type="tel" id="tel" name="tel" title="010-1234-5678" pattern="[0-9]{3}-\d{4}-[0-9]{4}"><br>
+
+	 <label for="qty">수량</label>
+	 <input type="range" id="qty" name="qty" 
+	 				min="100" max="10000" value="1000" step="10"><br>
+
+	 <label for="col">색상</label> change이벤트 설정
+	 <input onchange="colorChange()" type="color" id="col" name="col"><br>
+	 
+	 <input type="submit">
+	 
+	</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="http://localhost/webpro/css/public.css">
+<script src="../js/jquery-3.7.1.js"></script>
+<script type="text/javascript">
+
+function getData(){
+	const promise = new Promise( (resolve,reject) => {
+		
+		setTimeout( () =>{
+			const data = {name : "김은대"};
+			//const data = null;
+			
+			if(data){
+				console.log("데이터 가져오기 성공")
+				resolve(data);
+			} else {
+				reject(new Error("데이터 가져오기 실패"))
+			}
+		},1000)
+	})//Promise
+	
+	return promise;
+}//getData
+
+/*const proc1=()=>{
+	
+	//여러가지 기능 작업을 콜백함수내에서 실행
+	getData().then(data=>{
+		console.log(`${data.name}님 환영합니다.`)
+		return getData()
+	}).then( data=>{
+		console.log(`${data.name}님 환영합니다.`)
+		return getData();
+	}).then( data=>{
+		console.log(`${data.name}님 환영합니다.`)
+		return getData();
+	}).catch( error=>{
+		console.log(error);
+	}).finally( () =>{
+		console.log("모든 작업을 마쳤습니다.")
+	})
+}*/
+
+const proc1=()=>{
+	//간단 표현, 깔끔 정리
+	//then()함수의 콜백에서 문장이 한 문장이라면 자동 리턴 - {} 없고, return문장도, ;도 없다.
+	getData().then(data=>getData())
+	.then(data=>getData())
+	.then(data=>getData())
+	.catch(error=>console.log(error))
+	.finally(()=>console.log("마무리 끝"));
+}
+
+
+
+//콜백지옥
+/*getData((data)=>{
+	getData((data)=>{
+		getData((data)=>{
+			getData((data)=>{
+				
+			})
+		})
+	})
+})
+*/
+</script>
+</head>
+<body>
+
+<div class="box">
+  <h3></h3>
+   <input type="button" value="확인" onclick="proc1()">
+  <br>
+   <div id="result1"></div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

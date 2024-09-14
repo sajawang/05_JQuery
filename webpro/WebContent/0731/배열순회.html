@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href="../css/public.css">
+
+<script>
+ const fruits = ["사과", "바나나", "참외", "수박"]
+     window.onload = () => {
+ //window.onload = function(){
+	let out1 = document.getElementById('result1');
+	let out2 = document.getElementById('result2');
+	let out3 = document.getElementById('result3');
+	let out4 = document.getElementById('result4');
+	let out5 = document.getElementById('result5');
+	
+	//1번 배열이름을 이용해서 출력
+	out1.innerText = fruits;
+	
+	let str = "";
+	
+	//2번 - for문
+	for(let i=0; i<fruits.length; i++){
+		//str += `${fruits[i]} <br>`
+		str += fruits[i] + "<br>";
+	}
+	out2.innerHTML = str;
+	
+	str = "";
+	//3번   배열.forEach(function(item, index){   })
+	fruits.forEach(function(item, index){
+		//str += index + "번째" + item + "<br";
+		str += `${index}번째 ${item} <br>	`;
+	})
+	out3.innerHTML = str;
+	
+	str="";
+	//4번 for - in
+	for(let x in fruits){//x변수는 인덱스 - 객체 - 속성
+		str+=`${x}번째 ${fruits[x]} <br>`;
+	}
+	out4.innerHTML = str;
+	
+	str="";
+	for(let item of fruits){
+		str += `${item} <br>`;
+	}
+	out5.innerHTML = str;
+ }
+ 
+ 
+</script>
+<style>
+div{
+	border : 2px dotted green;
+	margin : 10px;
+	padding : 10px;
+	width : 50%;
+	height : 100px;
+}
+</style>
+</head>
+<body>
+
+<pre>
+템플릿리터럴 - 백틱을 이용한 문자열 만들기
+변수와 문자가 한 문장에서 반복적으로 나타날때 간단히 쓰고자 함
+str += gugu + " * " + i + " = " +( gugu * i ) + "&lt;br>";
+`````````````````````````````백틱 ~~~~~~~~~~~~~~~~~~~틸드
+`${변수} 문자 ${변수} 문자`
+`${gugu} * ${i} = ${gugu*i} &lt;br>`
+
+</pre>
+<h3>출력1-배열이름</h3>
+<div id="result1"></div>
+
+<h3>출력2-for</h3>
+<div id="result2"></div>
+
+<h3>출력3-forEach</h3>
+<div id="result3"></div>
+
+<h3>출력4-for in</h3>
+<div id="result4"></div>
+
+<h3>출력5-for of(자바의 확장 for문)</h3> 
+<div id="result5"></div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

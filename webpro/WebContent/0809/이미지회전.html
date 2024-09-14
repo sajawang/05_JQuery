@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="http://localhost/webpro/css/public.css">
+<script type="text/javascript">
+let fir = null;
+let gbtn = null;
+
+const start = (but)=>{
+	
+	//종료버튼 나오게
+	if(gbtn != null)
+		gbtn.style.display = "Inline"
+		
+	//시작 버튼 안보이게
+	but.style.display = "none";
+	
+	//행운의 당첨 테두리를 삭제
+	if(fir != null)
+		fir[rd].style.border = "none";
+	
+	//시작 버튼을 전역 변수로 변환
+	gbut = but;
+	
+	//이미지의 첫번째를 선택
+	res1 = document.getElementById('result1')
+	
+	a = setInterval(function(){
+		fir = res1.children; //전체 이미지 fir[2] fir[5] ifr[3]
+		res1.appendChild(fir[0]);
+		
+	},500);
+}
+
+const stop=(btn)=>{
+	/* let but = document.querySelector('input[value=시작]');
+	but.style.display = "block"; */
+	
+	//종료 버튼을 감추기
+	btn.style.display = "none";
+	gbtn = btn; //전역 변수로전환
+	
+	//전역 변수를 이용하여 설정- 시작버튼을 나오게
+	gbut.style.display = "inline";
+	
+	clearInterval(a);
+	
+	//랜덤 수를 발생
+	rd = parseInt(Math.random()*fir.length);
+	
+	//행운의 당첨 이미지를 선택
+	fir[rd].style.border = "5px double red";
+	
+}
+</script>
+
+<style type="text/css">
+img{
+ width : 100px;
+ height : 100px;
+}
+</style>
+</head>
+<body>
+start=()
+
+ <div class="box">
+        <h3>1.첫번째 이미지를 마지막으로 보내기 - appendChild()
+        1초마다 한번씩 반복적으로 수행한다 - setInterval
+        </h3>
+            <input type="button" value="시작" onclick="start(this)">
+            <input type="button" value="종료" onclick="stop()">
+            <br>
+            <div id="result1">
+            	<img src="../images/flower-1.jpg" alt="">
+            	<img src="../images/flower-1.jpg" alt="">
+            	<img src="../images/flower-1.jpg" alt="">
+            	<img src="../images/flower-1.jpg" alt="">
+            	<img src="../images/flower-1.jpg" alt="">
+            	<img src="../images/flower-1.jpg" alt="">
+	        </div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
